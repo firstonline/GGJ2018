@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnityEngineHelper : MonoBehaviour
+public static class UnityEngineHelper
 {
-    public void TransformPosition(GameObject go, int x, int y, int z)
+    public static void TransformPosition(GameObject go, float x, float y, float z)
 	{
 		TransformPosition(go.transform, x, y, z);
 	}
 
-	public void TransformPosition(Transform tr, int x, int y, int z)
+	public static void TransformPosition(Transform tr, float x, float y, float z)
 	{
 		var newPosition = tr.position;
 		newPosition.x += x;
@@ -18,12 +18,12 @@ public class UnityEngineHelper : MonoBehaviour
 		tr.position = newPosition;
 	}
 
-	public void TansformLocalScale(GameObject go, int x, int y, int z)
+	public static void TansformLocalScale(GameObject go, float x, float y, float z)
 	{
 		TansformLocalScale(go.transform, x, y, z);
 	}
 
-	public void TansformLocalScale(Transform tr, int x, int y, int z)
+	public static void TansformLocalScale(Transform tr, float x, float y, float z)
 	{
 		var newLocalScale = tr.localScale;
 		newLocalScale.x += x;
@@ -32,12 +32,12 @@ public class UnityEngineHelper : MonoBehaviour
 		tr.localScale = newLocalScale;
 	}
 
-	public void TransformAngle(GameObject go, int x, int y, int z)
+	public static void TransformAngle(GameObject go, float x, float y, float z)
 	{
 		TransformAngle(go.transform, x, y, z);
 	}
 
-	public void TransformAngle(Transform tr, int x, int y, int z)
+	public static void TransformAngle(Transform tr, float x, float y, float z)
 	{
 		var newAngle = tr.localEulerAngles;
 		newAngle.x += x;

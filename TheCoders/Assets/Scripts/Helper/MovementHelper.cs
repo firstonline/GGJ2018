@@ -8,11 +8,8 @@ public class MovementHelper : MonoBehaviour
 	{
 		public Transform Transform { get; set; }
 		public Vector3 TargetPosition { get; set; }
-		public Vector3 TargetDirection { get; set; }
 		public float MoveSpeed { get; set; }
-		public float RoatationSpeed { get; set; }
 		public Action OnPositionDoneCallback { get; set; }
-		public Action OnRatationDoneCallback { get; set; }
 	}
 
 	public static MovementHelper Instance
@@ -60,43 +57,13 @@ public class MovementHelper : MonoBehaviour
 		}
 	}
 
-	public void FaceTarget(GameObject go, Vector3 targetPosition, float speed, Action callback)
-	{
-		FaceTarget(go.transform, targetPosition, speed, callback);
-	}
-
-	public void FaceTarget(Transform tr, Vector3 targetPosition, float speed, Action callback)
-	{
-		int hashCode = tr.GetHashCode();
-		if (m_movingObjects.ContainsKey(hashCode))
-		{
-			var movingObject = m_movingObjects[hashCode];
-			movingObject.TargetDirection = (targetPosition - tr.position).normalized;
-			movingObject.RoatationSpeed = speed;
-			movingObject.OnRatationDoneCallback = callback;
-		}
-		else
-		{
-			var movement = new Movement
-			{
-				Transform = tr,
-				TargetDirection = (targetPosition - tr.position).normalized,
-				RoatationSpeed = speed,
-				OnRatationDoneCallback = callback,
-			};
-			m_movingObjects.Add(hashCode, movement);
-		}
-	}
-
 	private void Update()
 	{
 		var keys = m_movingObjects.Keys;
 		bool positionDone;
-		bool rotationDone;
 		foreach (var key in keys)
 		{
 			positionDone = false;
-			rotationDone = false;
 			// Modify position
 			var movingObject = m_movingObjects[key];
 			if (movingObject.MoveSpeed > 0.0f)
@@ -118,29 +85,9 @@ public class MovementHelper : MonoBehaviour
 			{
 				positionDone = true;
 			}
+			
 
-			// Modify rotation
-			if (movingObject.RoatationSpeed > 0.0f)
-			{
-				var step = movingObject.RoatationSpeed * Time.deltaTime;
-				var tr = movingObject.Transform;
-				tr.forward = Vector3.RotateTowards(tr.forward, movingObject.TargetDirection, step, 0.0f);
-				if (tr.forward == movingObject.TargetDirection)
-				{
-					rotationDone = true;
-					movingObject.RoatationSpeed = 0;
-					if (movingObject.OnRatationDoneCallback != null)
-					{
-						movingObject.OnRatationDoneCallback();
-					}
-				}
-			}
-			else
-			{
-				rotationDone = true;
-			}
-
-			if (positionDone && rotationDone)
+			if (positionDone)
 			{
 				m_keysToRemove.Add(key);
 			}
