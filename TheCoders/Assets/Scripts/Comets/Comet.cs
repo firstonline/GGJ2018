@@ -60,7 +60,6 @@ public class Comet : MonoBehaviour
 		HealthCanvas.enabled = true;
 		if ( Health <= 0 )
 		{
-			GameMode.Instance.GetPopController().ReducePopulation(Damage);
 			Die();
 		}
 	}
