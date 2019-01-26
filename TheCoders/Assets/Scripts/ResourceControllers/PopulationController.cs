@@ -32,6 +32,9 @@ public class PopulationController : MonoBehaviour
 	[SerializeField]
 	private float CurrentGrowRate;
 
+	[SerializeField]
+	private bool LogPopulationStatsToConsole = true;
+
 	// Have a list of modifiers that can be indexed by ID
 	public Dictionary<uint, Modifier> Modifiers;
 
@@ -90,6 +93,9 @@ public class PopulationController : MonoBehaviour
 		PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
 		PopulationCurrentF = Mathf.Clamp(PopulationCurrentF, 0.0f, PopulationMaximum);
 		PopulationCurrent = (int)(PopulationCurrentF);
-		Debug.Log("Population: " + PopulationCurrent + " / " + PopulationMaximum + " || Growth Rate: (" + CurrentGrowRate + ")");
+		if (LogPopulationStatsToConsole)
+		{
+			Debug.Log("Population: " + PopulationCurrent + " / " + PopulationMaximum + " || Growth Rate: (" + CurrentGrowRate + ")");
+		}
     }
 }
