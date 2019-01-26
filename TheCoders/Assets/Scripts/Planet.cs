@@ -19,7 +19,7 @@ public class Planet : MonoBehaviour
 		if (null != anim)
 		{
 			// play Bounce but start at a quarter of the way though
-			anim.Play("PlanetClicked", 0, 0.0f);
+			anim.Play("PlanetClickAnim", 0, 0.0f);
 		}
 	}
 }
