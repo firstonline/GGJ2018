@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 81969494926872760}
   - component: {fileID: 81969494926872761}
   - component: {fileID: 81969494926872762}
+  - component: {fileID: 1348365023934588125}
   m_Layer: 0
   m_Name: sparksFX
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81969494926872763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children:
   - {fileID: 81969494884685811}
   m_Father: {fileID: 0}
@@ -664,11 +665,11 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0.2
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.1, y: 0.1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4873,6 +4874,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1348365023934588125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81969494926872763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ef29e09e63e3249a5d5aea54e57536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4971945460828904953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4880,11 +4893,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 81969494926872760}
     m_Modifications:
-    - target: {fileID: 5034128142279084557, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
-        type: 3}
-      propertyPath: m_Name
-      value: FireBallFX
-      objectReference: {fileID: 0}
     - target: {fileID: 5034128142279084554, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4939,6 +4947,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084554, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084554, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084554, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084557, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: m_Name
+      value: FireBallFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084552, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084552, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084552, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084552, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084552, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25fa2e821d9d6a6409d0df5623f3b4e5, type: 3}

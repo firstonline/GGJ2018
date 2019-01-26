@@ -10,6 +10,7 @@ public class Rocket : MonoBehaviour
 	[SerializeField] private SpriteRenderer m_rocketImage;
 	[SerializeField] private float m_rotateSpeed;
 	[SerializeField] private float m_angleDampTime;
+
 	private float m_timePast;
 	private float m_lifeTime = 5.0f;
 	private float m_lifeTimeLeft;
