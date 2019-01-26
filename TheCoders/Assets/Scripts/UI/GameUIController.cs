@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class GameUIController : MonoBehaviour
 {
 	[SerializeField] private GameObject m_inGameMenu;
-	[SerializeField] private TextMeshProUGUI m_populationText;
+	[SerializeField] private TextMeshProUGUI m_currentPopulationText;
+	[SerializeField] private TextMeshProUGUI m_maxPopulationText;
 	[SerializeField] private string m_humanCostPrefix = "Human Population:";
 	[SerializeField] private Image m_fillBar;
 	[SerializeField] private GameObject m_endGamePopup;
@@ -59,7 +60,8 @@ public class GameUIController : MonoBehaviour
 
 	public void UpdatePopulationText(int currentPopulation, int maxPopulation)
 	{
-		m_populationText.text = currentPopulation + "/" + maxPopulation;
+		m_currentPopulationText.text = currentPopulation.ToString();
+		m_maxPopulationText.text = maxPopulation.ToString();
 		m_fillBar.fillAmount = (float)currentPopulation / (float)maxPopulation;
 	}
 
