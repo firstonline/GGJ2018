@@ -9,20 +9,35 @@ using UnityEngine;
 */
 public class GameMode : MonoBehaviour
 {
-	public static GameMode instance;
+	public static GameMode Instance
+	{
+		get
+		{
+			if (ms_instance == null)
+			{
+				ms_instance = FindObjectOfType<GameMode>();
+			}
+			return ms_instance;
+		}
+	}
+
+	private static GameMode ms_instance;
+
 	private PopulationController PopController;
 
 	// Awake is called upon construction
 	void Awake()
 	{
-	
+		if (ms_instance == null)
+		{
+			ms_instance = this;
+		}
+		PopController = GetComponent<PopulationController>();
 	}
 
 	// Start is called before the first frame update
 	void Start()
     {
-		Debug.Log("Start!");
-		PopController = GetComponent<PopulationController>();
 	}
 
     // Main game loop logic here
@@ -30,4 +45,9 @@ public class GameMode : MonoBehaviour
     {
         
     }
+
+	public PopulationController GetPopController()
+	{
+		return PopController;
+	}
 }
