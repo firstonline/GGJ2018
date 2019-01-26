@@ -11,6 +11,7 @@ public class GameUIController : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI m_populationText;
 	[SerializeField] private string m_humanCostPrefix = "Human Population:";
 	[SerializeField] private Image m_fillBar;
+	[SerializeField] private GameObject m_endGamePopup;
 
 	public static GameUIController Instance
 	{
@@ -70,5 +71,10 @@ public class GameUIController : MonoBehaviour
 	public void Restart()
 	{
 		SceneManager.LoadScene("Game");
+	}
+
+	public void ShowEndGamePopup()
+	{
+		m_endGamePopup.SetActive(true);
 	}
 }
