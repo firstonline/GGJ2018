@@ -25,6 +25,20 @@ public class GameMode : MonoBehaviour
 
 	private PopulationController PopController;
 
+	[HideInInspector]
+	public Arena2D Arena;
+	private CometSpawner CometSpawner;
+	public GameObject Planet;
+
+	[Header("Comet Spawns")]
+	// Spawn a comet every X seconds
+	[SerializeField]
+	private float CometSpawnDelay = 2.0f;
+	[SerializeField]
+	private float CometSpeed = 0.2f;
+
+	private float TimeElapsedSinceLastSpawn = 0.0f;
+
 	// Awake is called upon construction
 	void Awake()
 	{
@@ -33,6 +47,8 @@ public class GameMode : MonoBehaviour
 			ms_instance = this;
 		}
 		PopController = GetComponent<PopulationController>();
+		Arena = GetComponent<Arena2D>();
+		CometSpawner = GetComponent<CometSpawner>()
 	}
 
 	// Start is called before the first frame update
@@ -43,7 +59,12 @@ public class GameMode : MonoBehaviour
     // Main game loop logic here
     void Update()
     {
-        
+		TimeElapsedSinceLastSpawn += Time.deltaTime;
+		if (TimeElapsedSinceLastSpawn >= CometSpawnDelay)
+		{
+			TimeElapsedSinceLastSpawn = 0.0f;
+			CometSpawner.SpawnComet( CometSpeed, 10, 10 );
+		}
     }
 
 	public PopulationController GetPopController()

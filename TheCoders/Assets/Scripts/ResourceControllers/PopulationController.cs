@@ -32,8 +32,25 @@ public class PopulationController : MonoBehaviour
 	[SerializeField]
 	private float CurrentGrowRate;
 
+	[SerializeField]
+	private bool LogPopulationStatsToConsole = true;
+
 	// Have a list of modifiers that can be indexed by ID
 	public Dictionary<uint, Modifier> Modifiers;
+
+	// Add value directly to current population
+	public void AddPopulation(int Value)
+	{
+		PopulationCurrent += Value;
+		PopulationCurrentF += Value;
+	}
+
+	// Deduct value directly to current population
+	public void ReducePopulation(int amount)
+	{
+		PopulationCurrent -= amount;
+		PopulationCurrentF -= amount;
+	}
 
 	// Add a modifier (then evaluate growth rate)
 	public void AddModifier(uint key, Modifier expr)
@@ -85,9 +102,9 @@ public class PopulationController : MonoBehaviour
 		{
 			PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
 			PopulationCurrent = (int)(PopulationCurrentF);
-			if (PopulationCurrent > PopulationMaximum)
+			if (PopulationCurrentF > PopulationMaximum)
 			{
-				PopulationCurrent = PopulationMaximum;
+				PopulationCurrentF = PopulationMaximum;
 			}
 			GameUIController.Instance.UpdatePopulationText(PopulationCurrent, PopulationMaximum);
 		}
@@ -97,11 +114,5 @@ public class PopulationController : MonoBehaviour
 	public int GetCurrentPopulation()
 	{
 		return PopulationCurrent;
-	}
-
-	public void ReducePopulation(int amount)
-	{
-		PopulationCurrent -= amount;
-		PopulationCurrentF -= amount;
 	}
 }
