@@ -512,6 +512,16 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7743994301415808527, guid: 9b988964103fb39408e3879dc59cd6ea,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7743994301415808527, guid: 9b988964103fb39408e3879dc59cd6ea,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b988964103fb39408e3879dc59cd6ea, type: 3}
 --- !u!224 &247261534 stripped
@@ -720,6 +730,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8194152483517766136, guid: 9b988964103fb39408e3879dc59cd6ea,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7743994301415808527, guid: 9b988964103fb39408e3879dc59cd6ea,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7743994301415808527, guid: 9b988964103fb39408e3879dc59cd6ea,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -1002,18 +1022,21 @@ MonoBehaviour:
     Damage: 20
     StorageAmount: 2
     CreatedRockets: 0
+    Unlocked: 1
   - RocketType: 1
     RocketSprite: {fileID: 0}
     HumansCost: 20
     Damage: 25
     StorageAmount: 2
     CreatedRockets: 0
+    Unlocked: 1
   - RocketType: 2
     RocketSprite: {fileID: 0}
     HumansCost: 100
     Damage: 100
     StorageAmount: 2
     CreatedRockets: 0
+    Unlocked: 0
   m_rocketPrefab: {fileID: 3519320442709164875, guid: 1f7190e369ba467488b58418a32b4628,
     type: 3}
   target: {fileID: 179380432}
@@ -1242,14 +1265,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.120681494, g: 0.9811321, b: 0, a: 1}
+  m_Color: {r: 0.123999834, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e142b1e8e5af5f34d921da2dee9b3b85, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2214,15 +2237,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.062222242, g: 1, b: 0, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 2cd1ed55150965442bb85c62b224e359, type: 3}
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
