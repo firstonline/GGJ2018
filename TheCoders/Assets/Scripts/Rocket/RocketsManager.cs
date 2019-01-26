@@ -7,9 +7,9 @@ public class RocketsManager : MonoBehaviour
 {
 	[SerializeField] private List<RocketData> m_rocketsData;
 	[SerializeField] private Rocket m_rocketPrefab;
-	[SerializeField] private GameObject target;
 	[SerializeField] private RocketButton[] m_spawnButtons;
 
+	private GameObject target;
 	private ObjectPooler m_pooler;
 	private PopulationController m_popController;
 

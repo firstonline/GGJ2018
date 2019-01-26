@@ -30,12 +30,16 @@ public class GameMode : MonoBehaviour
 	private CometSpawner CometSpawner;
 	public GameObject Planet;
 
-	[Header("Comet Spawns")]
+	[Header("Comet Spawn Variables")]
 	// Spawn a comet every X seconds
 	[SerializeField]
 	private float CometSpawnDelay = 2.0f;
 	[SerializeField]
 	private float CometSpeed = 0.2f;
+	[SerializeField]
+	private int CometHealth = 10;
+	[SerializeField]
+	private int CometDamage = 10;
 
 	private float TimeElapsedSinceLastSpawn = 0.0f;
 
@@ -63,7 +67,7 @@ public class GameMode : MonoBehaviour
 		if (TimeElapsedSinceLastSpawn >= CometSpawnDelay)
 		{
 			TimeElapsedSinceLastSpawn = 0.0f;
-			CometSpawner.SpawnComet( CometSpeed, 10, 10 );
+			CometSpawner.SpawnComet( CometSpeed, CometHealth, CometDamage );
 		}
     }
 
