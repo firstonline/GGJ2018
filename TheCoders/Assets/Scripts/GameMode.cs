@@ -48,7 +48,7 @@ public class GameMode : MonoBehaviour
 		}
 		PopController = GetComponent<PopulationController>();
 		Arena = GetComponent<Arena2D>();
-		CometSpawner = GetComponent<CometSpawner>()
+		CometSpawner = GetComponent<CometSpawner>();
 	}
 
 	// Start is called before the first frame update

@@ -19,7 +19,7 @@ public class CometSpawner : MonoBehaviour
 	// Spawn a comet with a given direction and speed
 	public void SpawnComet( float Speed, int Health, int Damage )
 	{
-		Vector2 SpawnPoint = GameMode.instance.Arena.RandomArenaBorderPosition();
+		Vector2 SpawnPoint = GameMode.Instance.Arena.RandomArenaBorderPosition();
 		Debug.Log("New Comet Spawned at: " + SpawnPoint);
 		GameObject NewCometObj = CometObjectPool.GetNewObject();
 		NewCometObj.transform.position = SpawnPoint;
@@ -30,7 +30,7 @@ public class CometSpawner : MonoBehaviour
 		CometComponent.MoveSpeed = Speed;
 
 		//Get direction vector from Spawnpoint to Centre
-		Vector2 Direction = (Vector2) (GameMode.instance.Planet.transform.position) - SpawnPoint;
+		Vector2 Direction = (Vector2) (GameMode.Instance.Planet.transform.position) - SpawnPoint;
 		NewCometObj.SetActive(true);
 		CometComponent.SetVelocity(Speed, Direction);
 	}
