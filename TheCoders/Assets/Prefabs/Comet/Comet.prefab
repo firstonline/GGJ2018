@@ -525,7 +525,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.11}
+  m_Size: {x: 0.15, y: 0.23}
   m_EdgeRadius: 0
 --- !u!1001 &7799446337295166290
 PrefabInstance:
@@ -618,11 +618,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
       value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027210854347631123, guid: bfd178249596eb944bf32065fcf94c2a,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd178249596eb944bf32065fcf94c2a, type: 3}
