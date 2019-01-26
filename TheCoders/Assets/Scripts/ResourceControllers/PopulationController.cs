@@ -9,13 +9,20 @@ public class PopulationController : MonoBehaviour
 	//Template for function type that is used in 
 	public delegate float Modifier(float val);
 
+	// Starting Population
+	[SerializeField]
+	private int StartingPopulation;
+
 	// Max population
 	[SerializeField]
-	public int PopulationMaximum { get; private set; }
+	private int PopulationMaximum;
 
 	// Current population
 	[SerializeField]
-	public int PopulationCurrent { get; private set; }
+	private int PopulationCurrent;
+
+	// Float version for small decimal additions
+	private float PopulationCurrentF;
 
 	// Initial growth rate - per second
 	[SerializeField]
@@ -23,7 +30,7 @@ public class PopulationController : MonoBehaviour
 
 	// Current grow rate (following modifier evaluation) - per second
 	[SerializeField]
-	public float CurrentGrowRate { get; private set; }
+	private float CurrentGrowRate;
 
 	// Have a list of modifiers that can be indexed by ID
 	public Dictionary<uint, Modifier> Modifiers;
@@ -74,6 +81,8 @@ public class PopulationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		//Debug.Log(CurrentGrowRate);
+		PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
+		PopulationCurrent = (int)(PopulationCurrentF);
+		Debug.Log("Population: " + PopulationCurrent + " / " + PopulationMaximum + " || Growth Rate: (" + CurrentGrowRate + ")");
     }
 }
