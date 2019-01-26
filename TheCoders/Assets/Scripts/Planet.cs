@@ -21,5 +21,6 @@ public class Planet : MonoBehaviour
 			// play Bounce but start at a quarter of the way though
 			anim.Play("PlanetClickAnim", 0, 0.0f);
 		}
+		AudioController.Instance.PlayEarthClickSound();
 	}
 }
