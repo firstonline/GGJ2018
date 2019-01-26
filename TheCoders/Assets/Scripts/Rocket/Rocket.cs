@@ -65,12 +65,18 @@ public class Rocket : MonoBehaviour
 		}
 		else
 		{
-			this.gameObject.SetActive(false);
+			gameObject.SetActive(false);
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		
+		Debug.Log("Rocket Overlap with other: " + other.tag);
+		if (other.CompareTag("Comet"))
+		{
+			Comet Comet = other.gameObject.GetComponent<Comet>();
+			Comet.TakeDamage(m_damage);
+			gameObject.SetActive(false);
+		}
 	}
 }

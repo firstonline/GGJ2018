@@ -35,4 +35,23 @@ public class Comet : MonoBehaviour
     {
         
     }
+
+	public void TakeDamage( int Value )
+	{
+		Health -= Value;
+		if ( Health <= 0 )
+		{
+			gameObject.SetActive(false);
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log("Comet Overlap with other: " + other.tag);
+		if (other.CompareTag("Planet"))
+		{
+			GameMode.Instance.GetPopController().ReducePopulation(Damage);
+			gameObject.SetActive(false);
+		}
+	}
 }
