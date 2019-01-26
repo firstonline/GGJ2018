@@ -5,14 +5,34 @@ using UnityEngine;
 public class PopulationUpgrade : IUpgrade
 {
 	public override UpgradeType UpgradeType { get { return UpgradeType.Population; } }
+	public float FlatGrowthIncrease;
+	public float PercentageGrowthIncrease;
 
 	public override void ApplyUpgrade()
 	{
-		throw new System.NotImplementedException();
+		var popController = GameMode.Instance.GetPopController();
+
+		if (FlatGrowthIncrease > 0)
+		{
+			popController.Growth += FlatGrowthIncrease;
+		}
+		else if (PercentageGrowthIncrease > 0)
+		{
+			popController.Growth *= (1.0f + PercentageGrowthIncrease);
+		}
 	}
 
 	public override void RemoveUpgrade()
 	{
-		throw new System.NotImplementedException();
+		var popController = GameMode.Instance.GetPopController();
+
+		if (FlatGrowthIncrease > 0)
+		{
+			popController.Growth -= FlatGrowthIncrease;
+		}
+		else if (PercentageGrowthIncrease > 0)
+		{
+			popController.Growth /= (1.0f + PercentageGrowthIncrease);
+		}
 	}
 }

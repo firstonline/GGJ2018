@@ -9,6 +9,12 @@ public class PopulationController : MonoBehaviour
 	//Template for function type that is used in 
 	public delegate float Modifier(float val);
 
+	public float Growth
+	{
+		get { return CurrentGrowRate; }
+		set { CurrentGrowRate = value; }
+	}
+
 	// Starting Population
 	[SerializeField]
 	private int StartingPopulation;
@@ -65,7 +71,12 @@ public class PopulationController : MonoBehaviour
 		Modifiers.Remove(key);
 		EvaluateGrowthRate();
 	}
-	
+
+	public int GetCurrentPopulation()
+	{
+		return PopulationCurrent;
+	}
+
 	// Determine the current growth rate by totalling modifiers (not efficient)
 	private void EvaluateGrowthRate()
 	{
@@ -114,8 +125,4 @@ public class PopulationController : MonoBehaviour
 		// Debug.Log("Population: " + PopulationCurrent + " / " + PopulationMaximum + " || Growth Rate: (" + CurrentGrowRate + ")");
 	}
 
-	public int GetCurrentPopulation()
-	{
-		return PopulationCurrent;
-	}
 }
