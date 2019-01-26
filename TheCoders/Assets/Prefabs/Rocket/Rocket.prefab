@@ -49,7 +49,7 @@ MonoBehaviour:
   m_moveSpeed: 10
   m_damage: 0
   m_rocketImage: {fileID: 7995426665569160919}
-  m_rotateSpeed: 10
+  m_rotateSpeed: 20
   m_angleDampTime: 0.3
 --- !u!212 &7995426665569160919
 SpriteRenderer:
