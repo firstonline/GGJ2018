@@ -59,7 +59,7 @@ public class GameUIController : MonoBehaviour
 	public void UpdatePopulationText(int currentPopulation, int maxPopulation)
 	{
 		m_populationText.text = currentPopulation + "/" + maxPopulation;
-		m_fillBar.fillAmount = (float)currentPopulation / (float) maxPopulation;
+		m_fillBar.fillAmount = (float)currentPopulation / (float)maxPopulation;
 	}
 
 	public void ExitGame()
@@ -71,5 +71,4 @@ public class GameUIController : MonoBehaviour
 	{
 		SceneManager.LoadScene("Game");
 	}
-
 }

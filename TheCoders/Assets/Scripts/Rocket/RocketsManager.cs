@@ -39,32 +39,80 @@ public class RocketsManager : MonoBehaviour
 	private void Start()
 	{
 		// expect to have 3 of them
-		m_spawnButtons[0].Initialise(()=> { SpawnRocket(RocketType.Small); }, m_rocketsData[0].HumansCost);
-		m_spawnButtons[1].Initialise(() => { SpawnRocket(RocketType.Normal); }, m_rocketsData[1].HumansCost);
-		m_spawnButtons[2].Initialise(() => { SpawnRocket(RocketType.Big); }, m_rocketsData[2].HumansCost);
+		var rocketData = GetRocketData(RocketType.Small);
+		m_spawnButtons[0].Initialise(rocketData);
+		rocketData = GetRocketData(RocketType.Normal);
+		m_spawnButtons[1].Initialise(rocketData);
+		rocketData = GetRocketData(RocketType.Big);
+		m_spawnButtons[2].Initialise(rocketData);
 
 		m_popController = GameMode.Instance.GetPopController();
 	}
 
-	public void SpawnRocket(RocketType rocketType)
+	public void CreateRocket(RocketType rocketType)
 	{
 		var rocketData = GetRocketData(rocketType);
-		int humanResourceCount = m_popController.GetCurrentPopulation();
-		
-		if (humanResourceCount >= rocketData.HumansCost)
+
+		if (rocketData.StorageAmount > rocketData.CreatedRockets)
 		{
-			m_popController.ReducePopulation(rocketData.HumansCost);
-			var rocket = m_pooler.GetNewObject().GetComponent<Rocket>();
-			rocket.Initialise(target, rocketData.Damage, rocketData.RocketSprite, Vector3.zero, Vector3.zero);
+			int humanResourceCount = m_popController.GetCurrentPopulation();
+
+			if (humanResourceCount >= rocketData.HumansCost)
+			{
+				m_popController.ReducePopulation(rocketData.HumansCost);
+				rocketData.CreatedRockets++;
+				UpdateRocketButton(rocketData, true);
+			}
+			else
+			{
+				Debug.Log("Not enough human resources " + rocketType.ToString());
+			}
 		}
 		else
 		{
-			Debug.Log("Not enough human resources");
+			Debug.Log("Rocket Storage Is Full for " + rocketType.ToString());
+		}
+	}
+
+	public void LaunchRocket(RocketType rocketType)
+	{
+		var rocketData = GetRocketData(rocketType);
+		if (rocketData.CreatedRockets > 0)
+		{
+			rocketData.CreatedRockets--;
+			UpdateRocketButton(rocketData, false);
+			var rocket = m_pooler.GetNewObject().GetComponent<Rocket>();
+			rocket.Initialise(target, rocketData.Damage, rocketData.RocketSprite, Vector3.zero, Vector3.zero);
 		}
 	}
 
 	public RocketData GetRocketData(RocketType rocketType)
 	{
 		return m_rocketsData.FirstOrDefault(x => x.RocketType == rocketType);
+	}
+
+	public void IncreaseRocketStorage(RocketType rocketType, int amount)
+	{
+		GetRocketData(rocketType).StorageAmount += amount;
+	}
+
+	private void UpdateRocketButton(RocketData rocketData, bool increase)
+	{
+		int buttonIndex = (int)rocketData.RocketType;
+		m_spawnButtons[buttonIndex].SetStorageText(rocketData.CreatedRockets, rocketData.StorageAmount);
+		if (increase)
+		{
+			if (rocketData.CreatedRockets == 1)
+			{
+				m_spawnButtons[buttonIndex].ShowLaunchButton();
+			}
+		}
+		else
+		{
+			if (rocketData.CreatedRockets == 0)
+			{
+				m_spawnButtons[buttonIndex].HideLaunchButton();
+			}
+		}
 	}
 }
