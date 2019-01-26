@@ -96,6 +96,14 @@ public class RocketsManager : MonoBehaviour
 		GetRocketData(rocketType).StorageAmount += amount;
 	}
 
+	public void UnlockRocket(RocketType rocketType)
+	{
+		var rocketData = GetRocketData(rocketType);
+		rocketData.Unlocked = true;
+		int buttonIndex = (int)rocketData.RocketType;
+		m_spawnButtons[buttonIndex].UnlockButton();
+	}
+
 	private void UpdateRocketButton(RocketData rocketData, bool increase)
 	{
 		int buttonIndex = (int)rocketData.RocketType;

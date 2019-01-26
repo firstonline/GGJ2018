@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class RocketButton : MonoBehaviour
 {
+	[SerializeField] private GameObject m_lockedPanel;
+	[SerializeField] private GameObject m_unlockedPanel;
+
 	[SerializeField] private Button m_launchButton;
 	[SerializeField] private Button m_createButton;
 	[SerializeField] private TextMeshProUGUI m_humanCost;
@@ -22,6 +22,8 @@ public class RocketButton : MonoBehaviour
 		m_createButton.onClick.AddListener(CreateRocket);
 		m_humanCost.text = rocketData.HumansCost.ToString();
 		SetStorageText(rocketData.CreatedRockets, rocketData.StorageAmount);
+		m_lockedPanel.SetActive(!rocketData.Unlocked);
+		m_unlockedPanel.SetActive(rocketData.Unlocked);
 	}
 
 	private void LaunchRocket()
@@ -52,5 +54,11 @@ public class RocketButton : MonoBehaviour
 	public void ShowLaunchButton()
 	{
 		m_animator.SetTrigger("LaunchAppear");
+	}
+
+	public void UnlockButton()
+	{
+		m_lockedPanel.SetActive(false);
+		m_unlockedPanel.SetActive(true);
 	}
 }

@@ -9,4 +9,5 @@ public class RocketData
 	public int Damage;
 	public int StorageAmount;
 	public int CreatedRockets;
+	public bool Unlocked;
 }
