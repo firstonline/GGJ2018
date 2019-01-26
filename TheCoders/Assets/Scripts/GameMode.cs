@@ -71,4 +71,9 @@ public class GameMode : MonoBehaviour
 	{
 		return PopController;
 	}
+
+	public CometSpawner GetCometSpawner()
+	{
+		return CometSpawner;
+	}
 }
