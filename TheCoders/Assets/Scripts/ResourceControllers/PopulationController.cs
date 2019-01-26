@@ -35,6 +35,12 @@ public class PopulationController : MonoBehaviour
 	// Have a list of modifiers that can be indexed by ID
 	public Dictionary<uint, Modifier> Modifiers;
 
+	// Add value directly to current population (add negative to deduct)
+	public void AddPopulation(int Value)
+	{
+		PopulationCurrentF -= Value;
+	}
+
 	// Add a modifier (then evaluate growth rate)
 	public void AddModifier(uint key, Modifier expr)
 	{
@@ -82,6 +88,7 @@ public class PopulationController : MonoBehaviour
     void Update()
     {
 		PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
+		PopulationCurrentF = Mathf.Clamp(PopulationCurrentF, 0.0f, PopulationMaximum);
 		PopulationCurrent = (int)(PopulationCurrentF);
 		Debug.Log("Population: " + PopulationCurrent + " / " + PopulationMaximum + " || Growth Rate: (" + CurrentGrowRate + ")");
     }
