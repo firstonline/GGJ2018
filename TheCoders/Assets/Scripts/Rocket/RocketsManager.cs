@@ -83,7 +83,7 @@ public class RocketsManager : MonoBehaviour
 			rocketData.CreatedRockets--;
 			UpdateRocketButton(rocketData, false);
 			var rocket = m_pooler.GetNewObject().GetComponent<Rocket>();
-			rocket.Initialise(target, rocketData.Damage, rocketData.RocketSprite, Vector3.zero, Vector3.zero);
+			rocket.Initialise(target, rocketData.Damage, rocketData.RocketSprite, Vector3.zero);
 		}
 	}
 

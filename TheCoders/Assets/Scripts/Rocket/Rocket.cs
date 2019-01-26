@@ -19,7 +19,7 @@ public class Rocket : MonoBehaviour
 	private float m_velocity = 0.0f;
 
 	// Start is called before the first frame update
-	public void Initialise(GameObject target, int damage, Sprite rocketSprite, Vector3 initPosition, Vector3 initRotation)
+	public void Initialise(GameObject target, int damage, Sprite rocketSprite, Vector3 initPosition)
     {
 		m_damage = damage;
 		if (rocketSprite != null)
@@ -28,31 +28,37 @@ public class Rocket : MonoBehaviour
 		}
 		m_target = target;
 		var rotation = transform.rotation;
-		rotation.eulerAngles = initRotation;
 		transform.rotation = rotation;
 		transform.position = initPosition;
-		m_originalAngle = transform.rotation;
 		m_lifeTimeLeft = m_lifeTime;
 		m_dir = m_target.transform.position - this.transform.position;
 		m_dir.Normalize();
+		float angle = Vector3.SignedAngle(transform.up, m_dir, Vector3.forward);
+		var random = Random.Range(angle - 20, angle + 20);
+		var currentRotation = transform.rotation;
+		currentRotation.eulerAngles = new Vector3(0.0f, 0.0f, random);
+		transform.rotation = currentRotation;
+		m_originalAngle = transform.rotation;
 	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
-		if  (m_target != null)
+		if (m_target != null)
 		{
 			if (m_target.activeSelf)
 			{
 				m_dir = m_target.transform.position - this.transform.position;
 				m_timePast += Time.deltaTime;
-				float angle = -Vector3.SignedAngle(transform.up, m_dir, Vector3.up);
-				var clampedTime = 1 - Mathf.Clamp(m_timePast / m_angleDampTime, 0.95f, 1f);
-				float modifiedAngle = Mathf.SmoothDampAngle(m_originalAngle.eulerAngles.z, angle, ref m_velocity, clampedTime);
-				var currentRotation = transform.rotation;
-				currentRotation.eulerAngles += new Vector3(0.0f, 0.0f, modifiedAngle * Time.deltaTime * m_rotateSpeed);
-				transform.rotation = currentRotation;
-				transform.position += transform.up  * m_moveSpeed * Time.deltaTime;
+
+				float angle = Vector3.SignedAngle(transform.up, m_dir, Vector3.forward);
+				var clampedtime = 1 - Mathf.Clamp(m_timePast / m_angleDampTime, 0.5f, 1f);
+				float modifiedAngle = Mathf.SmoothDampAngle(0, angle, ref m_velocity, clampedtime);
+				var currentrotation = transform.rotation;
+
+				currentrotation.eulerAngles += new Vector3(0.0f, 0.0f, modifiedAngle * Time.deltaTime * m_rotateSpeed);
+				transform.rotation = currentrotation;
+				transform.position += transform.up * m_moveSpeed * Time.deltaTime;
 				if (transform.position == m_target.transform.position)
 				{
 					this.gameObject.SetActive(false);
@@ -67,7 +73,6 @@ public class Rocket : MonoBehaviour
 		else
 		{
 			transform.position += m_dir * m_moveSpeed * Time.deltaTime;
-
 		}
 
 
@@ -83,7 +88,7 @@ public class Rocket : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("Rocket Overlap with other: " + other.tag);
+		// Debug.Log("Rocket Overlap with other: " + other.tag);
 		if (other.CompareTag("Comet"))
 		{
 			Comet Comet = other.gameObject.GetComponent<Comet>();

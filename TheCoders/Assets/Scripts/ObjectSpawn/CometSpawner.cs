@@ -20,7 +20,7 @@ public class CometSpawner : MonoBehaviour
 	public void SpawnComet( float Speed, int Health, int Damage )
 	{
 		Vector2 SpawnPoint = GameMode.Instance.Arena.RandomArenaBorderPosition();
-		Debug.Log("New Comet Spawned at: " + SpawnPoint);
+		// Debug.Log("New Comet Spawned at: " + SpawnPoint);
 		GameObject NewCometObj = CometObjectPool.GetNewObject();
 		NewCometObj.transform.position = SpawnPoint;
 		NewCometObj.SetActive(false);
