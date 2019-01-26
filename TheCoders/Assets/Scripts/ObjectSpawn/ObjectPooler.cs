@@ -75,5 +75,17 @@ public class ObjectPooler{
 		}
 		return count;
 	}
-	
+
+	public List<GameObject> GetActiveElementsList()
+	{
+		List<GameObject> activeObjects = new List<GameObject>();
+		foreach (GameObject gObject in list)
+		{
+			if (gObject.activeSelf)
+			{
+				activeObjects.Add(gObject);
+			}
+		}
+		return activeObjects;
+	}
 }

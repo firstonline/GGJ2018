@@ -49,4 +49,10 @@ public class CometSpawner : MonoBehaviour
 	{
 		return CometObjectPool.CountActiveElements();
 	}
+
+	// Return list of currently actve comets (no gurantee they stay active)
+	public List<GameObject> GetActiveComets()
+	{
+		return CometObjectPool.GetActiveElementsList();
+	}
 }

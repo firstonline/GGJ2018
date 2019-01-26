@@ -33,31 +33,43 @@ public class Rocket : MonoBehaviour
 		transform.position = initPosition;
 		m_originalAngle = transform.rotation;
 		m_lifeTimeLeft = m_lifeTime;
+		m_dir = m_target.transform.position - this.transform.position;
+		m_dir.Normalize();
 	}
 
     // Update is called once per frame
     void Update()
     {
-		if (m_target != null)
+		if  (m_target != null)
 		{
-			m_dir = m_target.transform.position - this.transform.position;
-			m_timePast += Time.deltaTime;
-			float angle = -Vector3.SignedAngle(transform.up, m_dir, Vector3.up);
-			var clampedTime = 1 - Mathf.Clamp(m_timePast / m_angleDampTime, 0.95f, 1f);
-			float modifiedAngle = Mathf.SmoothDampAngle(m_originalAngle.eulerAngles.z, angle, ref m_velocity, clampedTime);
-			var currentRotation = transform.rotation;
-			currentRotation.eulerAngles += new Vector3(0.0f, 0.0f, modifiedAngle * Time.deltaTime * m_rotateSpeed);
-			transform.rotation = currentRotation;
-			transform.position += transform.up  * m_moveSpeed * Time.deltaTime;
-			if (transform.position == m_target.transform.position)
+			if (m_target.activeSelf)
 			{
-				this.gameObject.SetActive(false);
+				m_dir = m_target.transform.position - this.transform.position;
+				m_timePast += Time.deltaTime;
+				float angle = -Vector3.SignedAngle(transform.up, m_dir, Vector3.up);
+				var clampedTime = 1 - Mathf.Clamp(m_timePast / m_angleDampTime, 0.95f, 1f);
+				float modifiedAngle = Mathf.SmoothDampAngle(m_originalAngle.eulerAngles.z, angle, ref m_velocity, clampedTime);
+				var currentRotation = transform.rotation;
+				currentRotation.eulerAngles += new Vector3(0.0f, 0.0f, modifiedAngle * Time.deltaTime * m_rotateSpeed);
+				transform.rotation = currentRotation;
+				transform.position += transform.up  * m_moveSpeed * Time.deltaTime;
+				if (transform.position == m_target.transform.position)
+				{
+					this.gameObject.SetActive(false);
+				}
+			}
+			else
+			{
+				m_dir.Normalize();
+				m_target = null;
 			}
 		}
 		else
 		{
 			transform.position += m_dir * m_moveSpeed * Time.deltaTime;
+
 		}
+
 
 		if (m_lifeTimeLeft > 0)
 		{
