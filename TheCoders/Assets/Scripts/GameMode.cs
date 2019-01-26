@@ -31,7 +31,7 @@ public class GameMode : MonoBehaviour
 	private CometSpawner CometSpawner;
 	public GameObject Planet;
 
-	[Header("Comet Spawn Variables")]
+	[Header("Comet Base Spawn Variables")]
 	// Spawn a comet every X seconds
 	[SerializeField]
 	private float CometSpawnDelay = 2.0f;
@@ -41,7 +41,22 @@ public class GameMode : MonoBehaviour
 	private int CometHealth = 10;
 	[SerializeField]
 	private int CometDamage = 10;
+	//[Space(20)]
 
+	[Header("Comet Wave Variables")]
+	[SerializeField]
+	private int CometsUntilUpgrade = 50;
+	[SerializeField]
+	private float CometSpawnDelayMultiplier = 1.0f;
+	[SerializeField]
+	private float CometSpeedMultiplier = 1.0f;
+	[SerializeField]
+	private float CometHealthMultiplier = 1.5f;
+	[SerializeField]
+	private float CometDamageMultiplier = 1.5f;
+	[Space(20)]
+
+	private int CometsSpawnedInWave = 0;
 	private float TimeElapsedSinceLastSpawn = 0.0f;
 
 	// Awake is called upon construction
@@ -69,6 +84,18 @@ public class GameMode : MonoBehaviour
 		{
 			TimeElapsedSinceLastSpawn = 0.0f;
 			CometSpawner.SpawnComet( CometSpeed, CometHealth, CometDamage );
+			CometsSpawnedInWave++;
+		}
+
+		//Upgrade wave?
+		if ( CometsSpawnedInWave >= CometsUntilUpgrade )
+		{
+			CometsSpawnedInWave = 0;
+			CometSpawnDelay *= CometSpawnDelayMultiplier;
+			CometSpeed *= CometSpeedMultiplier;
+			CometHealth = (int)(CometHealth * CometHealthMultiplier);
+			CometDamage = (int)(CometDamage * CometDamageMultiplier);
+			Debug.Log("Wave upgraded!");
 		}
     }
 
