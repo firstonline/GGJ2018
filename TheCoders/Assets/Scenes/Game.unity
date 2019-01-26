@@ -502,6 +502,16 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8194152483517766136, guid: 9b988964103fb39408e3879dc59cd6ea,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194152483517766136, guid: 9b988964103fb39408e3879dc59cd6ea,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b988964103fb39408e3879dc59cd6ea, type: 3}
 --- !u!224 &247261534 stripped
@@ -512,7 +522,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &247261535 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2827971806772363038, guid: 9b988964103fb39408e3879dc59cd6ea,
+  m_CorrespondingSourceObject: {fileID: 7395875071785235805, guid: 9b988964103fb39408e3879dc59cd6ea,
     type: 3}
   m_PrefabInstance: {fileID: 247261533}
   m_PrefabAsset: {fileID: 0}
@@ -704,11 +714,21 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8194152483517766136, guid: 9b988964103fb39408e3879dc59cd6ea,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194152483517766136, guid: 9b988964103fb39408e3879dc59cd6ea,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b988964103fb39408e3879dc59cd6ea, type: 3}
 --- !u!114 &341764808 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2827971806772363038, guid: 9b988964103fb39408e3879dc59cd6ea,
+  m_CorrespondingSourceObject: {fileID: 7395875071785235805, guid: 9b988964103fb39408e3879dc59cd6ea,
     type: 3}
   m_PrefabInstance: {fileID: 341764807}
   m_PrefabAsset: {fileID: 0}
@@ -980,14 +1000,20 @@ MonoBehaviour:
     RocketSprite: {fileID: 0}
     HumansCost: 15
     Damage: 20
+    StorageAmount: 2
+    CreatedRockets: 0
   - RocketType: 1
     RocketSprite: {fileID: 0}
     HumansCost: 20
     Damage: 25
+    StorageAmount: 2
+    CreatedRockets: 0
   - RocketType: 2
     RocketSprite: {fileID: 0}
     HumansCost: 100
     Damage: 100
+    StorageAmount: 2
+    CreatedRockets: 0
   m_rocketPrefab: {fileID: 3519320442709164875, guid: 1f7190e369ba467488b58418a32b4628,
     type: 3}
   target: {fileID: 179380432}
@@ -1581,31 +1607,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8891353470075298899, guid: 9b988964103fb39408e3879dc59cd6ea,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8891353470075298899, guid: 9b988964103fb39408e3879dc59cd6ea,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8891353470075298899, guid: 9b988964103fb39408e3879dc59cd6ea,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2986793074835661007, guid: 9b988964103fb39408e3879dc59cd6ea,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2986793074835661007, guid: 9b988964103fb39408e3879dc59cd6ea,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2986793074835661007, guid: 9b988964103fb39408e3879dc59cd6ea,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -1618,16 +1619,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3184285835671353547, guid: 9b988964103fb39408e3879dc59cd6ea,
         type: 3}
-      propertyPath: m_fontSize
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3184285835671353547, guid: 9b988964103fb39408e3879dc59cd6ea,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3184285835671353547, guid: 9b988964103fb39408e3879dc59cd6ea,
-        type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
@@ -1636,9 +1627,14 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4676816807235553595, guid: 9b988964103fb39408e3879dc59cd6ea,
+    - target: {fileID: 8194152483517766136, guid: 9b988964103fb39408e3879dc59cd6ea,
         type: 3}
-      propertyPath: m_Colors.m_NormalColor.a
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194152483517766136, guid: 9b988964103fb39408e3879dc59cd6ea,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1651,7 +1647,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1001834337 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2827971806772363038, guid: 9b988964103fb39408e3879dc59cd6ea,
+  m_CorrespondingSourceObject: {fileID: 7395875071785235805, guid: 9b988964103fb39408e3879dc59cd6ea,
     type: 3}
   m_PrefabInstance: {fileID: 1001834335}
   m_PrefabAsset: {fileID: 0}
@@ -2534,8 +2530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639c7b64cb6c70a468fea7ede59ca92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingPopulation: 0
+  StartingPopulation: 50
   PopulationMaximum: 100
-  PopulationCurrent: 0
+  PopulationCurrent: 50
   StartingGrowthRate: 1.1
   CurrentGrowRate: 0
