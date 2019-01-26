@@ -25,7 +25,7 @@ public class SkillTree : MonoBehaviour
 
 		for (int i = 0; i < m_techUpgradesRanking.Count; i++)
 		{
-			m_techUpgradesRanking.Add(m_techUpgradesRanking[i], 0);
+			m_techUpgradesRanking.Add(m_techUpgrades[i], 0);
 		}
 
 		for (int i = 0; i < m_rocketUpgrades.Count; i++)
