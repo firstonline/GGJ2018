@@ -77,7 +77,7 @@ public class RocketsManager : MonoBehaviour
 	public void LaunchRocket(RocketType rocketType)
 	{
 		var rocketData = GetRocketData(rocketType);
-		if (rocketData.CreatedRockets > 0)
+		if (target != null && rocketData.CreatedRockets > 0)
 		{
 			rocketData.CreatedRockets--;
 			UpdateRocketButton(rocketData, false);
