@@ -41,7 +41,6 @@ public class GameMode : MonoBehaviour
 	private int CometHealth = 10;
 	[SerializeField]
 	private int CometDamage = 10;
-	//[Space(20)]
 
 	[Header("Comet Wave Variables")]
 	[SerializeField]
@@ -54,7 +53,9 @@ public class GameMode : MonoBehaviour
 	private float CometHealthMultiplier = 1.5f;
 	[SerializeField]
 	private float CometDamageMultiplier = 1.5f;
-	[Space(20)]
+
+	[Header("Player Variables")]
+	public int PlayerDamagePerClick = 1;
 
 	private int CometsSpawnedInWave = 0;
 	private float TimeElapsedSinceLastSpawn = 0.0f;

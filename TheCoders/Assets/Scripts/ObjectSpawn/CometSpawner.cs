@@ -25,7 +25,7 @@ public class CometSpawner : MonoBehaviour
 		NewCometObj.transform.position = SpawnPoint;
 		NewCometObj.SetActive(false);
 		Comet CometComponent = NewCometObj.GetComponent<Comet>();
-		CometComponent.Health = Health;
+		CometComponent.MaxHealth = Health;
 		CometComponent.Damage = Damage;
 		CometComponent.MoveSpeed = Speed;
 

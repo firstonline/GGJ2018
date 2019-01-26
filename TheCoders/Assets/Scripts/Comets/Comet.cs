@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Comet : MonoBehaviour
 {
 	// Population reduced when hitting earth
 	public int Damage;
-	public int Health;
+	public int MaxHealth;
 	public float MoveSpeed;
 	public Vector2 DirectionVector;
 
@@ -14,6 +15,12 @@ public class Comet : MonoBehaviour
 	[SerializeField] private GameObject m_trailRenderer;
 
 	private Rigidbody2D rbComponent;
+	private int Health;
+
+	[SerializeField]
+	private Slider HealthBar;
+	[SerializeField]
+	private Canvas HealthCanvas;
 
 	// Called at construction
 	void Awake()
@@ -24,6 +31,9 @@ public class Comet : MonoBehaviour
 
 	private void OnEnable()
 	{
+		HealthCanvas.enabled = false;
+		Health = MaxHealth;
+		HealthBar.value = 1.0f;
 		m_explosionVFX.SetActive(false);
 		m_trailRenderer.SetActive(true);
 	}
@@ -31,8 +41,10 @@ public class Comet : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		//rbComponent.velocity = (DirectionVector * MoveSpeed);
-    }
+		HealthCanvas.enabled = false;
+		Health = MaxHealth;
+		HealthBar.value = 1.0f;
+	}
 
 	public void SetVelocity( float Speed, Vector2 Direction )
 	{
@@ -40,15 +52,11 @@ public class Comet : MonoBehaviour
 		Vector2 vel = rbComponent.velocity;
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 	public void TakeDamage( int Value )
 	{
 		Health -= Value;
+		HealthBar.value = ((float)Health) / ((float)MaxHealth);
+		HealthCanvas.enabled = true;
 		if ( Health <= 0 )
 		{
 			GameMode.Instance.GetPopController().ReducePopulation(Damage);
@@ -79,11 +87,16 @@ public class Comet : MonoBehaviour
 	private void Die()
 	{
 		var explosion = Instantiate(m_explosionVFX);
-		var position = this.transform.position;
+		var position = transform.position;
 		position.z = -1;
 		explosion.transform.position = position;
 		m_trailRenderer.SetActive(false);
 		explosion.gameObject.SetActive(true);
 		gameObject.SetActive(false);
+	}
+
+	private void OnMouseDown()
+	{
+		TakeDamage(GameMode.Instance.PlayerDamagePerClick);
 	}
 }
