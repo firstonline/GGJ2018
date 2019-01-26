@@ -139,11 +139,11 @@ public class AbilityButton : MonoBehaviour
 		gameObject.GetComponentInChildren<Text>().text = Title;
 	}
 
-	public bool Unlock()
+	public void Unlock()
 	{
 		if (!IsLocked)
 		{
-			return true;
+			return;
 		}
 
 		bool CanUnlockWithResources = true;
@@ -158,11 +158,6 @@ public class AbilityButton : MonoBehaviour
 			{
 				Cost.ApplyModifier();
 			}
-			return true;
-		}
-		else
-		{
-			return false;
 		}
 	}
 
@@ -170,4 +165,5 @@ public class AbilityButton : MonoBehaviour
 	{
 		return IsLocked;
 	}
+
 }
