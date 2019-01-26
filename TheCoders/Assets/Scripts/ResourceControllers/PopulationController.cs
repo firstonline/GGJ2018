@@ -38,10 +38,18 @@ public class PopulationController : MonoBehaviour
 	// Have a list of modifiers that can be indexed by ID
 	public Dictionary<uint, Modifier> Modifiers;
 
-	// Add value directly to current population (add negative to deduct)
+	// Add value directly to current population
 	public void AddPopulation(int Value)
 	{
-		PopulationCurrentF -= Value;
+		PopulationCurrent += Value;
+		PopulationCurrentF += Value;
+	}
+
+	// Deduct value directly to current population
+	public void ReducePopulation(int amount)
+	{
+		PopulationCurrent -= amount;
+		PopulationCurrentF -= amount;
 	}
 
 	// Add a modifier (then evaluate growth rate)
@@ -93,11 +101,10 @@ public class PopulationController : MonoBehaviour
 		if (PopulationCurrent < PopulationMaximum)
 		{
 			PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
-		PopulationCurrentF = Mathf.Clamp(PopulationCurrentF, 0.0f, PopulationMaximum);
 			PopulationCurrent = (int)(PopulationCurrentF);
-			if (PopulationCurrent > PopulationMaximum)
+			if (PopulationCurrentF > PopulationMaximum)
 			{
-				PopulationCurrent = PopulationMaximum;
+				PopulationCurrentF = PopulationMaximum;
 			}
 			GameUIController.Instance.UpdatePopulationText(PopulationCurrent, PopulationMaximum);
 		}
@@ -107,11 +114,5 @@ public class PopulationController : MonoBehaviour
 	public int GetCurrentPopulation()
 	{
 		return PopulationCurrent;
-	}
-
-	public void ReducePopulation(int amount)
-	{
-		PopulationCurrent -= amount;
-		PopulationCurrentF -= amount;
 	}
 }
