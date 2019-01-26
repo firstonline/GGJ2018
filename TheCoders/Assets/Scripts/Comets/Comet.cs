@@ -35,7 +35,8 @@ public class Comet : MonoBehaviour
 		Health = MaxHealth;
 		HealthBar.value = 1.0f;
 		m_explosionVFX.SetActive(false);
-		m_trailRenderer.SetActive(true);
+		//m_trailRenderer.SetActive(true);
+		m_trailRenderer.GetComponent<TrailRenderer>().emitting = true;
 	}
 
 	// Start is called before the first frame update
@@ -90,7 +91,9 @@ public class Comet : MonoBehaviour
 		var position = transform.position;
 		position.z = -1;
 		explosion.transform.position = position;
-		m_trailRenderer.SetActive(false);
+		m_trailRenderer.GetComponent<TrailRenderer>().emitting = false;
+		m_trailRenderer.GetComponent<TrailRenderer>().Clear();
+		//m_trailRenderer.SetActive(false);
 		explosion.gameObject.SetActive(true);
 		gameObject.SetActive(false);
 	}
