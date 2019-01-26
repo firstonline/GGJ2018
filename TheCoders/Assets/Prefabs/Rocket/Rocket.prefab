@@ -150,7 +150,7 @@ PrefabInstance:
     - target: {fileID: 3691334805950869091, guid: f668348f070d97948993abe4ae4e702f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3691334805950869091, guid: f668348f070d97948993abe4ae4e702f,
         type: 3}
@@ -205,22 +205,37 @@ PrefabInstance:
     - target: {fileID: 1853157358019542547, guid: f668348f070d97948993abe4ae4e702f,
         type: 3}
       propertyPath: m_Time
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1853157358019542547, guid: f668348f070d97948993abe4ae4e702f,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.07142258
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 1853157358019542547, guid: f668348f070d97948993abe4ae4e702f,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1853157358019542547, guid: f668348f070d97948993abe4ae4e702f,
         type: 3}
       propertyPath: m_MinVertexDistance
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853157358019542547, guid: f668348f070d97948993abe4ae4e702f,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
+      value: -0.008831913
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853157358019542547, guid: f668348f070d97948993abe4ae4e702f,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
+      value: -0.008831913
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853157358019542547, guid: f668348f070d97948993abe4ae4e702f,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0.2516129
       objectReference: {fileID: 0}
     - target: {fileID: 2450636778807062290, guid: f668348f070d97948993abe4ae4e702f,
         type: 3}

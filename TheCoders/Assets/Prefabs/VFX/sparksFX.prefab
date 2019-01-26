@@ -117,7 +117,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -286,8 +286,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.1
+      scalar: 2
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1655,7 +1655,7 @@ ParticleSystem:
     uvChannelMask: -1
     randomRow: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 21300000, guid: a6a9c560e180bc24b87e3898a80d4eba, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -2209,7 +2209,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0.09585953
+          value: 0.5012665
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -4893,6 +4893,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 81969494926872760}
     m_Modifications:
+    - target: {fileID: 5034128142279084557, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: m_Name
+      value: FireBallFX
+      objectReference: {fileID: 0}
     - target: {fileID: 5034128142279084554, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4962,11 +4967,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5034128142279084557, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
-        type: 3}
-      propertyPath: m_Name
-      value: FireBallFX
       objectReference: {fileID: 0}
     - target: {fileID: 5034128142279084552, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
         type: 3}
