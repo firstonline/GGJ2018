@@ -78,6 +78,32 @@ public class PopulationController : MonoBehaviour
 		return PopulationCurrent;
 	}
 
+	public void SetCurrentPopulation(int Value)
+	{
+		PopulationCurrentF = Value;
+		PopulationCurrent = Value;
+	}
+
+	public int GetPopulationLimit()
+	{
+		return PopulationMaximum;
+	}
+
+	public void SetPopulationLimit(int Value)
+	{
+		PopulationMaximum = Value;
+	}
+
+	public float GetGrowthRate()
+	{
+		return CurrentGrowRate;
+	}
+
+	public void SetGrowthRate(float Value)
+	{
+		CurrentGrowRate = Value;
+	}
+
 	// Determine the current growth rate by totalling modifiers (not efficient)
 	private void EvaluateGrowthRate()
 	{
