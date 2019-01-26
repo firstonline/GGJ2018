@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -112,6 +112,92 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &31076143
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5675641307242388683, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_Name
+      value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484035922037608396, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 769912579864790003, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5bd05219ac04eee4d97f867f64395808,
+        type: 3}
+    - target: {fileID: 769912579864790003, guid: ad5be7b03090c8f4da9f823bd390aea3,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad5be7b03090c8f4da9f823bd390aea3, type: 3}
+--- !u!1 &31076144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5675641307242388683, guid: ad5be7b03090c8f4da9f823bd390aea3,
+    type: 3}
+  m_PrefabInstance: {fileID: 31076143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &110581743
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,6 +2594,8 @@ GameObject:
   - component: {fileID: 2106461140}
   - component: {fileID: 2106461141}
   - component: {fileID: 2106461139}
+  - component: {fileID: 2106461143}
+  - component: {fileID: 2106461142}
   m_Layer: 0
   m_Name: GameMode
   m_TagString: Untagged
@@ -2527,6 +2615,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d2d7e487a6f2342ad751975680c80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arena: {fileID: 0}
+  Planet: {fileID: 31076144}
+  CometSpawnDelay: 2
+  CometSpeed: 0.2
 --- !u!4 &2106461140
 Transform:
   m_ObjectHideFlags: 0
@@ -2558,3 +2650,32 @@ MonoBehaviour:
   PopulationCurrent: 50
   StartingGrowthRate: 1.1
   CurrentGrowRate: 0
+  LogPopulationStatsToConsole: 1
+--- !u!114 &2106461142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106461138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1fce9756aca48498c02f2bd035fd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinBounds: {x: -10, y: 7}
+  MaxBounds: {x: 10, y: -5}
+--- !u!114 &2106461143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106461138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e1850c7d774c148ab02b283c48ed83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CometPrefabs:
+  - {fileID: 8852442975657937711, guid: 2ba8e2da9100bd341814f0cb7c8f4d8a, type: 3}
