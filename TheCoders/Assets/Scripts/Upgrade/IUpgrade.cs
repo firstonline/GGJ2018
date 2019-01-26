@@ -6,18 +6,18 @@ public abstract class IUpgrade : ScriptableObject
 {
 	public enum UpgradeUnlockType
 	{
+		UnlockBaseUpgrade,
 		PopulationAmount,
-		HumanCost
 	}
 
 	public Image UpgradeImage;
-	public UpgradeUnlockType UnlockType;
+	public UpgradeUnlockType UnlockType;	// When will the player see it for the first time
 	public string Name;
 	public string Description;
-	public int Order;
-	public int RequiredHumans;
-	public int HumanFreeze;
-	public int HumanCost;
+	public int Order;					
+	public int RequiredHumansToSee;
+	public int BaseCost;
+	public float HumanResearchTime;
 
 	public abstract UpgradeType UpgradeType { get; }
 	public abstract void ApplyUpgrade();
