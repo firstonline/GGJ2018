@@ -77,6 +77,7 @@ public class RocketsManager : MonoBehaviour
 	public void LaunchRocket(RocketType rocketType)
 	{
 		var rocketData = GetRocketData(rocketType);
+		SelectBestTarget();
 		if (target != null && rocketData.CreatedRockets > 0)
 		{
 			rocketData.CreatedRockets--;
@@ -122,5 +123,24 @@ public class RocketsManager : MonoBehaviour
 				m_spawnButtons[buttonIndex].HideLaunchButton();
 			}
 		}
+	}
+
+	private void SelectBestTarget()
+	{
+		List<GameObject> Comets = GameMode.Instance.GetCometSpawner().GetActiveComets();
+		GameObject PriorityTarget = null;
+		float minDistance = 0.0f;
+
+		foreach (GameObject Target in Comets )
+		{
+			float TargetDistance = Mathf.Abs(Vector3.Distance(GameMode.Instance.Planet.transform.position, Target.transform.position));
+			if ( PriorityTarget == null || TargetDistance < minDistance )
+			{
+				PriorityTarget = Target;
+				minDistance = TargetDistance;
+			}
+		}
+
+		target = PriorityTarget;
 	}
 }
