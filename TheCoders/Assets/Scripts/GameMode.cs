@@ -112,6 +112,7 @@ public class GameMode : MonoBehaviour
 
 	public void GameOver()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		Planet.SetActive(false);
+		GameUIController.Instance.ShowEndGamePopup();
 	}
 }
