@@ -68,6 +68,8 @@ MonoBehaviour:
   Planet: {fileID: 0}
   CometSpawnDelay: 2
   CometSpeed: 0.2
+  CometHealth: 10
+  CometDamage: 10
 --- !u!114 &461238055146306253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,8 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1fce9756aca48498c02f2bd035fd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinBounds: {x: -10, y: -5}
-  MaxBounds: {x: 10, y: 7}
+  MinBounds: {x: -2, y: 0}
+  MaxBounds: {x: 2, y: 2}
 --- !u!114 &461238055146306252
 MonoBehaviour:
   m_ObjectHideFlags: 0
