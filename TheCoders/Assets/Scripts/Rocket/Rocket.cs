@@ -37,7 +37,7 @@ public class Rocket : MonoBehaviour
 			m_dir = m_target.transform.position - this.transform.position;
 			m_timePast += Time.deltaTime;
 			float angle = -Vector3.SignedAngle(transform.up, m_dir, Vector3.up);
-			var clampedTime = 1 - Mathf.Clamp(m_timePast / m_angleDampTime, 0.3f, 1.0f);
+			var clampedTime = 1 - Mathf.Clamp(m_timePast / m_angleDampTime, 0.95f, 1f);
 			float modifiedAngle = Mathf.SmoothDampAngle(m_originalAngle.eulerAngles.z, angle, ref m_velocity, clampedTime);
 
 			var currentRotation = transform.rotation;

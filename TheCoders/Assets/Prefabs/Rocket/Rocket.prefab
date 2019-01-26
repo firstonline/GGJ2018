@@ -46,11 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153b5853c624237498577641ed493e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 15
+  m_moveSpeed: 10
   m_damage: 0
   m_rocketImage: {fileID: 7995426665569160919}
-  m_rotateSpeed: 20
-  m_angleDampTime: 0.1
+  m_rotateSpeed: 10
+  m_angleDampTime: 0.3
 --- !u!212 &7995426665569160919
 SpriteRenderer:
   m_ObjectHideFlags: 0
