@@ -56,6 +56,7 @@ public class PopulationController : MonoBehaviour
 	{
 		PopulationCurrent -= amount;
 		PopulationCurrentF -= amount;
+		CheckGameOver();
 	}
 
 	// Add a modifier (then evaluate growth rate)
@@ -112,6 +113,7 @@ public class PopulationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		
 		if (PopulationCurrent < PopulationMaximum)
 		{
 			PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
@@ -125,4 +127,11 @@ public class PopulationController : MonoBehaviour
 		// Debug.Log("Population: " + PopulationCurrent + " / " + PopulationMaximum + " || Growth Rate: (" + CurrentGrowRate + ")");
 	}
 
+	void CheckGameOver()
+	{
+		if ( PopulationCurrent < 0 )
+		{
+			GameMode.Instance.GameOver();
+		}
+	}
 }
