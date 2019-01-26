@@ -7,4 +7,7 @@ public class RocketData
 	public Sprite RocketSprite;
 	public int HumansCost;
 	public int Damage;
+	public int StorageAmount;
+	public int CreatedRockets;
+	public bool Unlocked;
 }

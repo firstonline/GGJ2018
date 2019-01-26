@@ -32,8 +32,25 @@ public class PopulationController : MonoBehaviour
 	[SerializeField]
 	private float CurrentGrowRate;
 
+	[SerializeField]
+	private bool LogPopulationStatsToConsole = true;
+
 	// Have a list of modifiers that can be indexed by ID
 	public Dictionary<uint, Modifier> Modifiers;
+
+	// Add value directly to current population
+	public void AddPopulation(int Value)
+	{
+		PopulationCurrent += Value;
+		PopulationCurrentF += Value;
+	}
+
+	// Deduct value directly to current population
+	public void ReducePopulation(int amount)
+	{
+		PopulationCurrent -= amount;
+		PopulationCurrentF -= amount;
+	}
 
 	// Add a modifier (then evaluate growth rate)
 	public void AddModifier(uint key, Modifier expr)
@@ -65,6 +82,9 @@ public class PopulationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		PopulationCurrent = StartingPopulation;
+		PopulationCurrentF = StartingPopulation;
+
 		// Set current rate to 1.0f and apply initial modifier
 		CurrentGrowRate = 1.0f;
 		Modifiers = new Dictionary<uint, Modifier>();
@@ -81,8 +101,21 @@ public class PopulationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
-		PopulationCurrent = (int)(PopulationCurrentF);
-		Debug.Log("Population: " + PopulationCurrent + " / " + PopulationMaximum + " || Growth Rate: (" + CurrentGrowRate + ")");
-    }
+		if (PopulationCurrent < PopulationMaximum)
+		{
+			PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
+			PopulationCurrent = (int)(PopulationCurrentF);
+			if (PopulationCurrentF > PopulationMaximum)
+			{
+				PopulationCurrentF = PopulationMaximum;
+			}
+			GameUIController.Instance.UpdatePopulationText(PopulationCurrent, PopulationMaximum);
+		}
+		// Debug.Log("Population: " + PopulationCurrent + " / " + PopulationMaximum + " || Growth Rate: (" + CurrentGrowRate + ")");
+	}
+
+	public int GetCurrentPopulation()
+	{
+		return PopulationCurrent;
+	}
 }
