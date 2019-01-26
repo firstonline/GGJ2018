@@ -82,6 +82,9 @@ public class PopulationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		PopulationCurrent = StartingPopulation;
+		PopulationCurrentF = StartingPopulation;
+
 		// Set current rate to 1.0f and apply initial modifier
 		CurrentGrowRate = 1.0f;
 		Modifiers = new Dictionary<uint, Modifier>();
