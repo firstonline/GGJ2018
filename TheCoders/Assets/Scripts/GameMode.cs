@@ -9,7 +9,20 @@ using UnityEngine;
 */
 public class GameMode : MonoBehaviour
 {
-	public static GameMode instance;
+	public static GameMode Instance
+	{
+		get
+		{
+			if (ms_instance == null)
+			{
+				ms_instance = FindObjectOfType<GameMode>();
+			}
+			return ms_instance;
+		}
+	}
+
+	private static GameMode ms_instance;
+
 	private PopulationController PopController;
 
 	[HideInInspector]
@@ -29,16 +42,18 @@ public class GameMode : MonoBehaviour
 	// Awake is called upon construction
 	void Awake()
 	{
-		instance = this;
-		Arena = GetComponent<Arena2D>();
+		if (ms_instance == null)
+		{
+			ms_instance = this;
+		}
 		PopController = GetComponent<PopulationController>();
-		CometSpawner = GetComponent<CometSpawner>();
+		Arena = GetComponent<Arena2D>();
+		CometSpawner = GetComponent<CometSpawner>()
 	}
 
 	// Start is called before the first frame update
 	void Start()
     {
-		Debug.Log("Start!");
 	}
 
     // Main game loop logic here
@@ -51,4 +66,9 @@ public class GameMode : MonoBehaviour
 			CometSpawner.SpawnComet( CometSpeed, 10, 10 );
 		}
     }
+
+	public PopulationController GetPopController()
+	{
+		return PopController;
+	}
 }

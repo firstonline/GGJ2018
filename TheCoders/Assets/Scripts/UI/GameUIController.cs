@@ -1,11 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameUIController : MonoBehaviour
 {
 	[SerializeField] private GameObject m_inGameMenu;
+	[SerializeField] private TextMeshProUGUI m_populationText;
+	[SerializeField] private string m_humanCostPrefix = "Human Population:";
+	[SerializeField] private Image m_fillBar;
+
+	public static GameUIController Instance
+	{
+		get
+		{
+			if (ms_instance == null)
+			{
+				ms_instance = FindObjectOfType<GameUIController>();
+			}
+			return ms_instance;
+		}
+	}
+
+	private static GameUIController ms_instance;
+
+	private void Awake()
+	{
+		if (ms_instance == null)
+		{
+			ms_instance = this;
+		}
+	}
 
 	private void Start()
 	{
@@ -29,6 +56,12 @@ public class GameUIController : MonoBehaviour
 		}
 	}
 
+	public void UpdatePopulationText(int currentPopulation, int maxPopulation)
+	{
+		m_populationText.text = currentPopulation + "/" + maxPopulation;
+		m_fillBar.fillAmount = (float)currentPopulation / (float)maxPopulation;
+	}
+
 	public void ExitGame()
 	{
 		Application.Quit();
@@ -38,5 +71,4 @@ public class GameUIController : MonoBehaviour
 	{
 		SceneManager.LoadScene("Game");
 	}
-
 }
