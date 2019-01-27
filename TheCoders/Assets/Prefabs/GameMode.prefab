@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Arena: {fileID: 0}
-  Planet: {fileID: 0}
+  Planet: {fileID: 5675641307242388683, guid: ad5be7b03090c8f4da9f823bd390aea3, type: 3}
   CometSpawnDelay: 8
   CometSpeed: 0.1
   CometHealth: 100
