@@ -71,11 +71,11 @@ MonoBehaviour:
   - RocketType: 3
     RocketSprite: {fileID: 0}
     HumansCost: 0
-    Damage: 12
+    Damage: 75
     StorageAmount: 0
     CreatedRockets: 0
     Unlocked: 0
-    TimeToConstruct: 0.5
+    TimeToConstruct: -1
   m_rocketPrefab: {fileID: 3519320442709164875, guid: 1f7190e369ba467488b58418a32b4628,
     type: 3}
   m_spawnButton: {fileID: 0}

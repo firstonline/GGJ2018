@@ -28,7 +28,7 @@ public class UpgradePanelScript : MonoBehaviour
 		{
 			if (CheckClock >= DelayToCheckCondition)
 			{
-				PurchaseButton.enabled = UpgradeNode.UnlockFeasibleCheck();
+				PurchaseButton.interactable = UpgradeNode.UnlockFeasibleCheck();
 				CheckClock = 0.0f;
 			}
 			else
@@ -84,5 +84,10 @@ public class UpgradePanelScript : MonoBehaviour
 			UIPanelParent.SetActive(!Active);
 		}
 		gameObject.SetActive(Active);
+	}
+
+	private void OnEnable()
+	{
+		PurchaseButton.interactable = UpgradeNode.UnlockFeasibleCheck();
 	}
 }
