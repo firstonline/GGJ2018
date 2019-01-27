@@ -160,6 +160,12 @@ public class RocketsManager : MonoBehaviour
 		m_autoSpawnEnabled = false;
 	}
 
+	public int GetActiveRocketsCount()
+	{
+		return m_pooler.CountActiveElements();
+	}
+
+
 	private void SelectBestTarget()
 	{
 		List<GameObject> Comets = GameMode.Instance.GetCometSpawner().GetActiveComets();
@@ -178,4 +184,5 @@ public class RocketsManager : MonoBehaviour
 
 		target = PriorityTarget;
 	}
+
 }

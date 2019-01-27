@@ -6,9 +6,11 @@ public class AudioController : MonoBehaviour
 {
 	[SerializeField] AudioSource m_audioSource;
 	[SerializeField] AudioSource m_rocketExplosionSource;
+	[SerializeField] AudioSource m_rocketFlySource;
 	[SerializeField] AudioSource m_earthExplosionSource;
 	[SerializeField] List<AudioClip> m_earthClickSounds;
 	[SerializeField] List<AudioClip> m_explosionSounds;
+	[SerializeField] AudioClip m_flySound;
 	private float m_earthSoundDelay;
 
 	public static AudioController Instance
@@ -44,19 +46,30 @@ public class AudioController : MonoBehaviour
 		}
 	}
 
-	public void PlayExplosionSound(bool isEarth, Vector3 position)
+	public void PlayEarthExplosionSound()
 	{
-		if (!isEarth)
-		{
-			m_rocketExplosionSource.clip = m_explosionSounds[1];
-			m_rocketExplosionSource.Play();
-		}
-		else
-		{
-			m_earthExplosionSource.clip = m_explosionSounds[0];
-			m_earthExplosionSource.Play();
-		}
+		m_earthExplosionSource.clip = m_explosionSounds[0];
+		m_earthExplosionSource.Play();
 	}
+
+	public void PlayRocketExplosionSound(Vector3 position)
+	{
+		// no rockets left
+		if (m_rocketFlySource.isPlaying && RocketsManager.Instance.GetActiveRocketsCount() == 0)
+		{
+			m_rocketFlySource.Stop();
+		}
+		m_rocketExplosionSource.transform.position = position;
+		m_rocketExplosionSource.clip = m_explosionSounds[1];
+		m_rocketExplosionSource.Play();
+	}
+
+	public void PlayRocketFlySound()
+	{
+		m_rocketFlySource.clip = m_flySound;
+		m_rocketFlySource.Play();
+	}
+
 
 	private void Update()
 	{

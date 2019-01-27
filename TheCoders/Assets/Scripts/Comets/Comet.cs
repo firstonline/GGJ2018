@@ -72,17 +72,20 @@ public class Comet : MonoBehaviour
 		{
 			GameMode.Instance.GetPopController().ReducePopulation(Damage);
 			Die();
-			AudioController.Instance.PlayExplosionSound(true, Vector3.zero);
+			AudioController.Instance.PlayEarthExplosionSound();
 		}
 		else if (other.CompareTag("Rocket"))
 		{
+			Rocket rocket = other.gameObject.GetComponent<Rocket>();
+			TakeDamage(rocket.Damage);
+			other.gameObject.SetActive(false);
 			var explosion = Instantiate(m_explosionVFX);
 			explosion.transform.localScale *= 0.01f;
 			var position = other.transform.position;
 			position.z = -1;
 			explosion.transform.position = position;
 			explosion.gameObject.SetActive(true);
-			AudioController.Instance.PlayExplosionSound(false, other.transform.position);
+			AudioController.Instance.PlayRocketExplosionSound(other.transform.position);
 		}
 	}
 
