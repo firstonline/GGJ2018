@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3362375660714959487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.003, y: -0.134, z: -0.001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 8635548728710357140}
   - {fileID: 8435145462153277129}
@@ -136,9 +136,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8435145462153277129}
   - component: {fileID: 7596478269347530097}
-  - component: {fileID: 5039440234196970622}
+  - component: {fileID: 4235140035865180868}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Thrusters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,8 +152,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5358420607233809002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.058, z: -0.1}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
+  m_LocalPosition: {x: 0, y: -0.0757, z: -0.1}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
   m_Children: []
   m_Father: {fileID: 3105596215833645334}
   m_RootOrder: 1
@@ -206,22 +206,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!111 &5039440234196970622
-Animation:
+--- !u!95 &4235140035865180868
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5358420607233809002}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 701b5765076e82a4db4b5dbc0b655333, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 701b5765076e82a4db4b5dbc0b655333, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f560f20dededf2c48a9aa9e96f6e0b62, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4966872950464040695
 PrefabInstance:
   m_ObjectHideFlags: 0
