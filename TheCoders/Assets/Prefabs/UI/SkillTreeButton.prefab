@@ -92,7 +92,8 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   LevelCount: 0
-  UpgradePanel: {fileID: 0}
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
   Levels: []
 --- !u!1 &465631919593456718
 GameObject:
@@ -124,8 +125,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7006394256073972221}
   - {fileID: 4727445404112227127}
+  - {fileID: 7006394256073972221}
   - {fileID: 4939134965483166976}
   m_Father: {fileID: 5900941805853284310}
   m_RootOrder: 1
@@ -188,7 +189,8 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   LevelCount: 0
-  UpgradePanel: {fileID: 0}
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
   Levels: []
 --- !u!1 &567654928945695909
 GameObject:
@@ -281,7 +283,8 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   LevelCount: 0
-  UpgradePanel: {fileID: 0}
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
   Levels: []
 --- !u!1 &757178382474925625
 GameObject:
@@ -429,7 +432,102 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   LevelCount: 0
-  UpgradePanel: {fileID: 0}
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 7985651314733522230}
+  Levels: []
+--- !u!1 &1415858754875681089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4978229810842898716}
+  - component: {fileID: 4551442440217241997}
+  - component: {fileID: 2082578473361488231}
+  - component: {fileID: 1804082139393533128}
+  m_Layer: 0
+  m_Name: LevelHigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4978229810842898716
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415858754875681089}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2415560974456884033}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 10, y: 10}
+  m_SizeDelta: {x: 5, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4551442440217241997
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415858754875681089}
+  m_CullTransparentMesh: 0
+--- !u!114 &2082578473361488231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415858754875681089}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 5fbbc51e79b69db429cdc0806552d6bb, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!114 &1804082139393533128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415858754875681089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee834804394eea40b9bfc16e68ef8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: 
+  Description: 
+  Icon: {fileID: 0}
+  LevelCount: 0
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
   Levels: []
 --- !u!1 &1505780152363119031
 GameObject:
@@ -444,7 +542,7 @@ GameObject:
   - component: {fileID: 4404341618533438642}
   - component: {fileID: 3237775063113717463}
   m_Layer: 0
-  m_Name: LevelLow
+  m_Name: LevelMid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,7 +560,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5301751662164278661}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -497,7 +595,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5fbbc51e79b69db429cdc0806552d6bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0bbf12cc017777b45ac7ac448d6c3afc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -522,7 +620,102 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   LevelCount: 0
-  UpgradePanel: {fileID: 0}
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
+  Levels: []
+--- !u!1 &1885164714006825515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9125187084740063927}
+  - component: {fileID: 4002493632362027272}
+  - component: {fileID: 4872078467057329923}
+  - component: {fileID: 8902937721705470}
+  m_Layer: 0
+  m_Name: LevelLow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9125187084740063927
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885164714006825515}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2415560974456884033}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -10, y: 0}
+  m_SizeDelta: {x: 5, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4002493632362027272
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885164714006825515}
+  m_CullTransparentMesh: 0
+--- !u!114 &4872078467057329923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885164714006825515}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 5fbbc51e79b69db429cdc0806552d6bb, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!114 &8902937721705470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885164714006825515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee834804394eea40b9bfc16e68ef8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: 
+  Description: 
+  Icon: {fileID: 0}
+  LevelCount: 0
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
   Levels: []
 --- !u!1 &2120503821314893709
 GameObject:
@@ -556,6 +749,7 @@ RectTransform:
   m_Children:
   - {fileID: 2141438675980004678}
   - {fileID: 5301751662164278661}
+  - {fileID: 2415560974456884033}
   m_Father: {fileID: 3378912655855949590}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -617,7 +811,8 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   LevelCount: 0
-  UpgradePanel: {fileID: 0}
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
   Levels: []
 --- !u!1 &3527717901315101439
 GameObject:
@@ -710,7 +905,8 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   LevelCount: 0
-  UpgradePanel: {fileID: 0}
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
   Levels: []
 --- !u!1 &5168296061004539997
 GameObject:
@@ -725,7 +921,7 @@ GameObject:
   - component: {fileID: 7316480308175573926}
   - component: {fileID: 553139000315771021}
   m_Layer: 0
-  m_Name: LevelMid
+  m_Name: LevelLow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -743,7 +939,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5301751662164278661}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -778,7 +974,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5fbbc51e79b69db429cdc0806552d6bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0bbf12cc017777b45ac7ac448d6c3afc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -803,7 +999,8 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   LevelCount: 0
-  UpgradePanel: {fileID: 0}
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
   Levels: []
 --- !u!1 &7114102529886062204
 GameObject:
@@ -897,5 +1094,197 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   LevelCount: 0
-  UpgradePanel: {fileID: 0}
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
+  Levels: []
+--- !u!1 &7985651314733522230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2415560974456884033}
+  - component: {fileID: 880815417118707560}
+  - component: {fileID: 997844506086476339}
+  - component: {fileID: 6369373983379549327}
+  m_Layer: 0
+  m_Name: IconFG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2415560974456884033
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985651314733522230}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9125187084740063927}
+  - {fileID: 9189940979278882379}
+  - {fileID: 4978229810842898716}
+  m_Father: {fileID: 5900941805853284310}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 6}
+  m_SizeDelta: {x: -12, y: 20}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!222 &880815417118707560
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985651314733522230}
+  m_CullTransparentMesh: 0
+--- !u!114 &997844506086476339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985651314733522230}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.11764707, g: 0.16078432, b: 0.027450982, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 2cd1ed55150965442bb85c62b224e359, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!114 &6369373983379549327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985651314733522230}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee834804394eea40b9bfc16e68ef8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: 
+  Description: 
+  Icon: {fileID: 0}
+  LevelCount: 0
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
+  Levels: []
+--- !u!1 &9015395585702661767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9189940979278882379}
+  - component: {fileID: 5604152422775146342}
+  - component: {fileID: 883337336473569821}
+  - component: {fileID: 9216618645437016639}
+  m_Layer: 0
+  m_Name: LevelMid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9189940979278882379
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015395585702661767}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2415560974456884033}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 10}
+  m_SizeDelta: {x: 5, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5604152422775146342
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015395585702661767}
+  m_CullTransparentMesh: 0
+--- !u!114 &883337336473569821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015395585702661767}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 5fbbc51e79b69db429cdc0806552d6bb, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!114 &9216618645437016639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015395585702661767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee834804394eea40b9bfc16e68ef8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: 
+  Description: 
+  Icon: {fileID: 0}
+  LevelCount: 0
+  ShowDefaultUpgradeDescription: 1
+  FGLevelIconParent: {fileID: 0}
   Levels: []

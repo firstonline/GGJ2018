@@ -8,11 +8,13 @@ public class AbilityButton : MonoBehaviour
 	//Text/Image displayed on button
 	public string Title;
 	public string Description;
-	public Sprite Icon;
+	//public Sprite Icon;
 	private bool IsLocked = true;
 	[HideInInspector]
 	public int LevelCount = 0;
 	public bool ShowDefaultUpgradeDescription = true;
+	[SerializeField]
+	private GameObject FGLevelIconParent;
 
 	public enum ValueType
 	{
@@ -302,7 +304,7 @@ public class AbilityButton : MonoBehaviour
 
 	private void Awake()
 	{
-		gameObject.GetComponent<Image>().sprite = Icon;
+		//gameObject.GetComponent<Image>().sprite = Icon;
 		// gameObject.GetComponentInChildren<Text>().text = Title;
 	}
 
@@ -331,6 +333,7 @@ public class AbilityButton : MonoBehaviour
 			}
 
 			Debug.Log("Unlocked Skill!");
+			FGLevelIconParent.transform.GetChild(LevelCount).gameObject.GetComponent<Image>().enabled = true;
 			LevelCount++;
 			if (LevelCount >= Levels.Length)
 			{
