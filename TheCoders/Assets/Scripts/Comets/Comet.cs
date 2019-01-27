@@ -72,6 +72,7 @@ public class Comet : MonoBehaviour
 		{
 			GameMode.Instance.GetPopController().ReducePopulation(Damage);
 			Die();
+			AudioController.Instance.PlayExplosionSound(true, Vector3.zero);
 		}
 		else if (other.CompareTag("Rocket"))
 		{
@@ -81,6 +82,7 @@ public class Comet : MonoBehaviour
 			position.z = -1;
 			explosion.transform.position = position;
 			explosion.gameObject.SetActive(true);
+			AudioController.Instance.PlayExplosionSound(false, other.transform.position);
 		}
 	}
 
