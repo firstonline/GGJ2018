@@ -973,7 +973,7 @@ ParticleSystem:
     m_BurstCount: 3
     m_Bursts:
     - serializedVersion: 2
-      time: 0.25
+      time: 0
       countCurve:
         serializedVersion: 2
         minMaxState: 0
@@ -1031,7 +1031,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
     - serializedVersion: 2
-      time: 0.5
+      time: 0.1
       countCurve:
         serializedVersion: 2
         minMaxState: 0
@@ -1089,7 +1089,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
     - serializedVersion: 2
-      time: 0.75
+      time: 0.2
       countCurve:
         serializedVersion: 2
         minMaxState: 0
@@ -4893,11 +4893,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 81969494926872760}
     m_Modifications:
-    - target: {fileID: 5034128142279084557, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
-        type: 3}
-      propertyPath: m_Name
-      value: FireBallFX
-      objectReference: {fileID: 0}
     - target: {fileID: 5034128142279084554, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4967,6 +4962,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034128142279084557, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
+        type: 3}
+      propertyPath: m_Name
+      value: FireBallFX
       objectReference: {fileID: 0}
     - target: {fileID: 5034128142279084552, guid: 25fa2e821d9d6a6409d0df5623f3b4e5,
         type: 3}
