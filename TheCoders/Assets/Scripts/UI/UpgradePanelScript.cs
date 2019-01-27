@@ -48,6 +48,18 @@ public class UpgradePanelScript : MonoBehaviour
 			TitleTextString = TitleTextString + " Lv. " + (Node.LevelCount + 1);
 		}
 		DescTextString = Node.Description;
+		DescTextString += "\n\nCost:\n";
+		foreach ( AbilityButton.ModifierOption Cost in Node.Levels[Node.LevelCount].AbilityCosts )
+		{
+			DescTextString += "* " + Cost.RepresentAsString() + "\n";
+		}
+
+		DescTextString += "\nUpgrades:\n";
+		foreach (AbilityButton.ModifierOption Upgrade in Node.Levels[Node.LevelCount].Modifiers)
+		{
+			DescTextString += "* " + Upgrade.RepresentAsString() + "\n";
+		}
+
 		UpdateTexts();
 		CheckClock = 0.0f;
 		SetActive(true);

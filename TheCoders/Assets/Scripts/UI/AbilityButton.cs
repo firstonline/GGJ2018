@@ -261,6 +261,28 @@ public class AbilityButton : MonoBehaviour
 					return true;
 			}
 		}
+
+		public string RepresentAsString()
+		{
+			string OutputString = ValueType.ToString();
+			switch (OpType)
+			{
+				case OperationType.Addition:
+					OutputString += " +";
+					break;
+				case OperationType.Subtraction:
+					OutputString += " -";
+					break;
+				case OperationType.Multiplication:
+					OutputString += " x";
+					break;
+				case OperationType.Division:
+					OutputString += " /";
+					break;
+			}
+			OutputString += Value;
+			return OutputString;
+		}
 	}
 
 	[System.Serializable]
