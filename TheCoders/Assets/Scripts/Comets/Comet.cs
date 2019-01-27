@@ -61,7 +61,6 @@ public class Comet : MonoBehaviour
 		HealthCanvas.enabled = true;
 		if ( Health <= 0 )
 		{
-			AudioController.Instance.MeteoriteDestroyedSound();
 			Die();
 		}
 	}
@@ -74,7 +73,6 @@ public class Comet : MonoBehaviour
 		{
 			GameMode.Instance.GetPopController().ReducePopulation(Damage);
 			Die();
-			AudioController.Instance.PlayEarthExplosionSound();
 		}
 		else if (other.CompareTag("Rocket"))
 		{
@@ -102,6 +100,7 @@ public class Comet : MonoBehaviour
 		//m_trailRenderer.SetActive(false);
 		explosion.gameObject.SetActive(true);
 		gameObject.SetActive(false);
+		AudioController.Instance.PlayEarthExplosionSound();
 	}
 
 	private void OnMouseDown()
