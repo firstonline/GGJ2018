@@ -13,6 +13,8 @@ public class AbilityButton : MonoBehaviour
 	[HideInInspector]
 	public int LevelCount = 0;
 	public bool ShowDefaultUpgradeDescription = true;
+	[SerializeField]
+	private GameObject FGLevelIconParent;
 
 	public enum ValueType
 	{
@@ -331,6 +333,7 @@ public class AbilityButton : MonoBehaviour
 			}
 
 			Debug.Log("Unlocked Skill!");
+			FGLevelIconParent.transform.GetChild(LevelCount).gameObject.GetComponent<Image>().enabled = true;
 			LevelCount++;
 			if (LevelCount >= Levels.Length)
 			{
