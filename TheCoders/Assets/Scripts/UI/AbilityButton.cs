@@ -133,20 +133,19 @@ public class AbilityButton : MonoBehaviour
 					}
 					break;
 				case ValueType.ClickDamage:
-					float ClickDamage = GameMode.Instance.PlayerDamagePerClick;
 					switch (OpType)
 					{
 						case OperationType.Addition:
-							ClickDamage += Value;
+							GameMode.Instance.PlayerDamagePerClick += (int)Value;
 							break;
 						case OperationType.Subtraction:
-							ClickDamage -= Value;
+							GameMode.Instance.PlayerDamagePerClick -= (int)Value;
 							break;
 						case OperationType.Multiplication:
-							ClickDamage *= Value;
+							GameMode.Instance.PlayerDamagePerClick *= (int)Value;
 							break;
 						case OperationType.Division:
-							ClickDamage /= Value;
+							GameMode.Instance.PlayerDamagePerClick /= (int)Value;
 							break;
 					}
 					break;
