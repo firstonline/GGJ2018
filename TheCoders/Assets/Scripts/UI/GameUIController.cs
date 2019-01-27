@@ -13,6 +13,10 @@ public class GameUIController : MonoBehaviour
 	[SerializeField] private string m_humanCostPrefix = "Human Population:";
 	[SerializeField] private Image m_fillBar;
 	[SerializeField] private GameObject m_endGamePopup;
+	[SerializeField] private GameObject m_dimmer;
+	[SerializeField] private List<Animator> m_panelAnimators;
+
+	private bool m_panelsAreOpen;
 
 	public static GameUIController Instance
 	{
@@ -78,5 +82,41 @@ public class GameUIController : MonoBehaviour
 	public void ShowEndGamePopup()
 	{
 		m_endGamePopup.SetActive(true);
+	}
+
+	public void PanelButtonClicked()
+	{
+		if (m_panelsAreOpen)
+		{
+			StartCoroutine(SlideOutPanels());
+		}
+		else
+		{
+			StartCoroutine(SlideInPanels());
+		}
+	}
+
+	private IEnumerator SlideInPanels()
+	{
+		m_panelsAreOpen = true;
+		for (int i = 0; i < m_panelAnimators.Count; i++)
+		{
+			m_panelAnimators[i].SetTrigger("SlideIn");
+		}
+		m_dimmer.SetActive(true);
+		yield return new WaitForSeconds(0.4f);
+		Time.timeScale = 0;
+	}
+
+	private IEnumerator SlideOutPanels()
+	{
+		Time.timeScale = 1;
+		yield return new WaitForEndOfFrame();
+		m_panelsAreOpen = false;
+		m_dimmer.SetActive(false);
+		for (int i = 0; i < m_panelAnimators.Count; i++)
+		{
+			m_panelAnimators[i].SetTrigger("SlideOut");
+		}
 	}
 }
