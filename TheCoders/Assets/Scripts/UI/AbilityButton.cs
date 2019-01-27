@@ -319,6 +319,7 @@ public class AbilityButton : MonoBehaviour
 				IsLocked = false;
 				gameObject.GetComponent<Button>().interactable = false;
 			}
+			GameUIController.Instance.UpdateStatsScreen();
 		}
 		else
 		{
