@@ -106,6 +106,9 @@ public class Comet : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-		TakeDamage(GameMode.Instance.PlayerDamagePerClick);
+		if (Time.timeScale > 0.0f)
+		{
+			TakeDamage(GameMode.Instance.PlayerDamagePerClick);
+		}
 	}
 }
