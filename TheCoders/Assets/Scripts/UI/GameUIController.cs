@@ -18,6 +18,7 @@ public class GameUIController : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI m_statsText;
 	[SerializeField] private UpgradePanelScript m_upgradePanel;
 
+	private float m_cooldown;
 	private bool m_panelsAreOpen;
 
 	public static GameUIController Instance
@@ -62,9 +63,17 @@ public class GameUIController : MonoBehaviour
 				Time.timeScale = 1;
 			}
 		}
-		else if (Input.GetKeyUp(KeyCode.Space))
+
+		if (m_cooldown <= 0.0f)
 		{
-			PanelButtonClicked();
+			if (Input.GetKeyUp(KeyCode.Space))
+			{
+				PanelButtonClicked();
+			}
+		}
+		else
+		{
+			m_cooldown -= Time.deltaTime;
 		}
 	}
 
@@ -92,6 +101,7 @@ public class GameUIController : MonoBehaviour
 
 	public void PanelButtonClicked()
 	{
+		m_cooldown = 0.4f;
 		if (m_panelsAreOpen)
 		{
 			StartCoroutine(SlideOutPanels());
