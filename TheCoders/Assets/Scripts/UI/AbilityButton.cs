@@ -40,7 +40,7 @@ public class AbilityButton : MonoBehaviour
 		//Apply the current modifier
 		public void ApplyModifier()
 		{
-			RocketsManager RocketManager = GameObject.FindGameObjectWithTag("RocketManager").GetComponent<RocketsManager>();
+			RocketsManager RocketManager = RocketsManager.Instance.GetComponent<RocketsManager>();
 			RocketData RocketData = RocketManager.GetRocketData(RocketType.Small);
 			switch (ValueType)
 			{
@@ -133,20 +133,19 @@ public class AbilityButton : MonoBehaviour
 					}
 					break;
 				case ValueType.ClickDamage:
-					float ClickDamage = GameMode.Instance.PlayerDamagePerClick;
 					switch (OpType)
 					{
 						case OperationType.Addition:
-							ClickDamage += Value;
+							GameMode.Instance.PlayerDamagePerClick += (int)Value;
 							break;
 						case OperationType.Subtraction:
-							ClickDamage -= Value;
+							GameMode.Instance.PlayerDamagePerClick -= (int)Value;
 							break;
 						case OperationType.Multiplication:
-							ClickDamage *= Value;
+							GameMode.Instance.PlayerDamagePerClick *= (int)Value;
 							break;
 						case OperationType.Division:
-							ClickDamage /= Value;
+							GameMode.Instance.PlayerDamagePerClick /= (int)Value;
 							break;
 					}
 					break;
@@ -223,6 +222,7 @@ public class AbilityButton : MonoBehaviour
 	{
 		if (!IsLocked)
 		{
+			Debug.Log("Skill already unlocked!");
 			return;
 		}
 
@@ -238,7 +238,17 @@ public class AbilityButton : MonoBehaviour
 			{
 				Cost.ApplyModifier();
 			}
+			foreach (ModifierOption Modifier in Modifiers)
+			{
+				Modifier.ApplyModifier();
+			}
+
+			Debug.Log("Unlocked Skill!");
 			IsLocked = false;
+		}
+		else
+		{
+			Debug.Log("Cannot unlock! Not enough resources!");
 		}
 	}
 
