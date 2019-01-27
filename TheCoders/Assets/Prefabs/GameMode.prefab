@@ -73,7 +73,7 @@ MonoBehaviour:
   CometsUntilUpgrade: 6
   CometSpawnDelayMultiplier: 0.975
   CometSpeedMultiplier: 1.005
-  CometHealthMultiplier: 1.1
+  CometHealthMultiplier: 1.075
   CometDamageMultiplier: 1.05
   PlayerDamagePerClick: 0
 --- !u!114 &461238055146306253
