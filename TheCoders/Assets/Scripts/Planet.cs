@@ -21,7 +21,7 @@ public class Planet : MonoBehaviour
 	//On click - do this
 	private void OnMouseDown()
 	{
-		if ( PopulationGainPerClick > 0 )
+		if (Time.timeScale > 0 && PopulationGainPerClick > 0 )
 		{
 			int spawnAmount = Random.Range(1, 4);
 			for (int i = 0; i < spawnAmount; i++)
