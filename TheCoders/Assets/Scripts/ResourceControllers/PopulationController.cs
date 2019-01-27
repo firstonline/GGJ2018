@@ -140,18 +140,10 @@ public class PopulationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		
-		if (PopulationCurrent < PopulationMaximum)
-		{
-			PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
-			PopulationCurrent = (int)(PopulationCurrentF);
-			if (PopulationCurrentF > PopulationMaximum)
-			{
-				PopulationCurrentF = PopulationMaximum;
-			}
-			GameUIController.Instance.UpdatePopulationText(PopulationCurrent, PopulationMaximum);
-		}
-		// Debug.Log("Population: " + PopulationCurrent + " / " + PopulationMaximum + " || Growth Rate: (" + CurrentGrowRate + ")");
+		PopulationCurrentF += (Time.deltaTime * CurrentGrowRate);
+		PopulationCurrentF = Mathf.Clamp(PopulationCurrentF, 0, (float)PopulationMaximum);
+		PopulationCurrent = (int)(PopulationCurrentF);
+		GameUIController.Instance.UpdatePopulationText(PopulationCurrent, PopulationMaximum);
 	}
 
 	void CheckGameOver()

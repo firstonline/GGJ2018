@@ -48,7 +48,12 @@ public class UpgradePanelScript : MonoBehaviour
 			TitleTextString = TitleTextString + " Lv. " + (Node.LevelCount + 1);
 		}
 		DescTextString = Node.Description;
-		DescTextString += "\n\nCost:\n";
+		Debug.Log(Node.Description.Length);
+		if (Node.Description.Length != 0)
+		{
+			DescTextString += "\n\n";
+		}
+		DescTextString += "Cost:\n";
 		foreach ( AbilityButton.ModifierOption Cost in Node.Levels[Node.LevelCount].AbilityCosts )
 		{
 			DescTextString += "* " + Cost.RepresentAsString() + "\n";
