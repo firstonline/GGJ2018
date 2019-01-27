@@ -15,6 +15,7 @@ public class GameUIController : MonoBehaviour
 	[SerializeField] private GameObject m_endGamePopup;
 	[SerializeField] private GameObject m_dimmer;
 	[SerializeField] private List<Animator> m_panelAnimators;
+	[SerializeField] private TextMeshProUGUI m_statsText;
 
 	private bool m_panelsAreOpen;
 
@@ -100,14 +101,44 @@ public class GameUIController : MonoBehaviour
 		}
 	}
 
+	public void UpdateStatsScreen()
+	{
+		if (m_statsText != null)
+		{
+			var playerPop = GameMode.Instance.GetPopController();
+			var rocketManager = RocketsManager.Instance;
+			var manualRocketData = rocketManager.GetRocketData(RocketType.Small);
+
+			m_statsText.text =
+			"STATS" + "\n" + "\n" +
+			"Passive Growth: " + playerPop.Growth + "\n" +
+			"Click Growth: " + GameMode.Instance.Planet.GetComponent<Planet>().PopulationGainPerClick + "\n" +
+			"Click Damage: " + GameMode.Instance.PlayerDamagePerClick + "\n" +
+			"Rocket Damage: " + manualRocketData.Damage + "\n" +
+			"Rocket Build Time: " + manualRocketData.TimeToConstruct + "\n";
+
+			var autoRocketData = rocketManager.GetRocketData(RocketType.AutoAimWeak);
+
+			if (autoRocketData.TimeToConstruct > 0.0f)
+			{
+				m_statsText.text +=
+					"AutoRocket Damage: " + autoRocketData.Damage + "\n" +
+					"Auto Rocket Build: " + autoRocketData.TimeToConstruct + "\n";
+			}
+
+		}
+	}
+
 	private IEnumerator SlideInPanels()
 	{
+		UpdateStatsScreen();
 		m_panelsAreOpen = true;
 		for (int i = 0; i < m_panelAnimators.Count; i++)
 		{
 			m_panelAnimators[i].SetTrigger("SlideIn");
 		}
 		m_dimmer.SetActive(true);
+		
 		yield return new WaitForSeconds(0.4f);
 		Time.timeScale = 0;
 	}

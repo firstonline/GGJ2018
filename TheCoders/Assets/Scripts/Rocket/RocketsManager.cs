@@ -155,6 +155,11 @@ public class RocketsManager : MonoBehaviour
 		m_autoRocketData.TimeToConstruct = -0.05f;
 	}
 
+	public int GetRocketDamage()
+	{
+		return GetRocketData(RocketType.Small).Damage;
+	}
+
 	public void DisableAutoSpawn()
 	{
 		m_autoSpawnEnabled = false;
