@@ -61,6 +61,7 @@ public class Comet : MonoBehaviour
 		HealthCanvas.enabled = true;
 		if ( Health <= 0 )
 		{
+			AudioController.Instance.MeteoriteDestroyedSound();
 			Die();
 		}
 	}
@@ -105,6 +106,9 @@ public class Comet : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-		TakeDamage(GameMode.Instance.PlayerDamagePerClick);
+		if (Time.timeScale > 0.0f)
+		{
+			TakeDamage(GameMode.Instance.PlayerDamagePerClick);
+		}
 	}
 }
