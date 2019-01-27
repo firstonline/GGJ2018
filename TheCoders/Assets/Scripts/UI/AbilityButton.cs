@@ -12,6 +12,7 @@ public class AbilityButton : MonoBehaviour
 	private bool IsLocked = true;
 	[HideInInspector]
 	public int LevelCount = 0;
+	public bool ShowDefaultUpgradeDescription = true;
 
 	public enum ValueType
 	{
@@ -260,6 +261,28 @@ public class AbilityButton : MonoBehaviour
 				default:
 					return true;
 			}
+		}
+
+		public string RepresentAsString()
+		{
+			string OutputString = ValueType.ToString();
+			switch (OpType)
+			{
+				case OperationType.Addition:
+					OutputString += " +";
+					break;
+				case OperationType.Subtraction:
+					OutputString += " -";
+					break;
+				case OperationType.Multiplication:
+					OutputString += " x";
+					break;
+				case OperationType.Division:
+					OutputString += " /";
+					break;
+			}
+			OutputString += Value;
+			return OutputString;
 		}
 	}
 
