@@ -10,7 +10,10 @@ public class AbilityButton : MonoBehaviour
 	public string Description;
 	public Sprite Icon;
 	private bool IsLocked = true;
-	private int LevelCount = 0;
+	[HideInInspector]
+	public int LevelCount = 0;
+	[SerializeField]
+	private GameObject UpgradePanel;
 
 	public enum ValueType
 	{
@@ -295,13 +298,7 @@ public class AbilityButton : MonoBehaviour
 			return;
 		}
 
-		bool CanUnlockWithResources = true;
-		foreach ( ModifierOption Cost in Levels[LevelCount].AbilityCosts )
-		{
-			CanUnlockWithResources &= ModifierOption.EvaluateCostOption(Cost);
-		}
-
-		if (CanUnlockWithResources)
+		if (UnlockFeasibleCheck())
 		{
 			foreach (ModifierOption Cost in Levels[LevelCount].AbilityCosts)
 			{
@@ -326,9 +323,29 @@ public class AbilityButton : MonoBehaviour
 		}
 	}
 
+	public bool UnlockFeasibleCheck()
+	{
+		bool CanUnlockWithResources = true;
+		foreach (ModifierOption Cost in Levels[LevelCount].AbilityCosts)
+		{
+			CanUnlockWithResources &= ModifierOption.EvaluateCostOption(Cost);
+		}
+		return CanUnlockWithResources;
+	}
+
 	public bool IsUnlocked()
 	{
 		return IsLocked;
 	}
 
+	public void OpenUpgradePanel()
+	{
+		if (UpgradePanel == null)
+		{
+			UpgradePanel = GameObject.Find("BuyUpgradePanel");
+			Debug.Log("UpgradePanel reference was NULL!");
+		}
+			UpgradePanelScript UPS = UpgradePanel.GetComponent<UpgradePanelScript>();
+			UPS.SetUpgradeNode(this);
+	}
 }

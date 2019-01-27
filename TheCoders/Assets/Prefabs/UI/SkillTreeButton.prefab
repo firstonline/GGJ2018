@@ -118,7 +118,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 757178382474925627}
-        m_MethodName: Unlock
+        m_MethodName: OpenUpgradePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -145,6 +145,8 @@ MonoBehaviour:
   Title: 
   Description: 
   Icon: {fileID: 0}
+  LevelCount: 0
+  UpgradePanel: {fileID: 0}
   Levels: []
 --- !u!1 &757178383678482944
 GameObject:
