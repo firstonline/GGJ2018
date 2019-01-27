@@ -12,8 +12,6 @@ public class AbilityButton : MonoBehaviour
 	private bool IsLocked = true;
 	[HideInInspector]
 	public int LevelCount = 0;
-	[SerializeField]
-	private GameObject UpgradePanel;
 
 	public enum ValueType
 	{
@@ -341,12 +339,6 @@ public class AbilityButton : MonoBehaviour
 
 	public void OpenUpgradePanel()
 	{
-		if (UpgradePanel == null)
-		{
-			UpgradePanel = GameObject.Find("BuyUpgradePanel");
-			Debug.Log("UpgradePanel reference was NULL!");
-		}
-			UpgradePanelScript UPS = UpgradePanel.GetComponent<UpgradePanelScript>();
-			UPS.SetUpgradeNode(this);
+		GameUIController.Instance.SetUpgPanel(this);
 	}
 }
