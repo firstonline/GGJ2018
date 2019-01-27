@@ -72,7 +72,7 @@ public class RocketsManager : MonoBehaviour
 			}
 		}
 
-		if (m_autoSpawnEnabled)
+		if (m_autoSpawnEnabled && m_autoRocketData.TimeToConstruct >= 0.0f)
 		{
 			if (m_autoConstructionTimeLeft > 0.0f)
 			{
@@ -152,19 +152,13 @@ public class RocketsManager : MonoBehaviour
 	{
 		m_autoSpawnEnabled = true;
 		m_autoRocketData = GetRocketData(RocketType.AutoAimWeak);
-		m_autoConstructionTimeLeft = m_autoRocketData.TimeToConstruct;
+		m_autoRocketData.TimeToConstruct = -0.05f;
 	}
 
 	public void DisableAutoSpawn()
 	{
 		m_autoSpawnEnabled = false;
 	}
-
-	public int GetActiveRocketsCount()
-	{
-		return m_pooler.CountActiveElements();
-	}
-
 
 	private void SelectBestTarget()
 	{
@@ -185,4 +179,8 @@ public class RocketsManager : MonoBehaviour
 		target = PriorityTarget;
 	}
 
+	public int GetActiveRocketsCount()
+	{
+		return m_pooler.CountActiveElements();
+	}
 }
