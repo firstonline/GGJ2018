@@ -5,7 +5,10 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
 	[SerializeField] AudioSource m_audioSource;
+	[SerializeField] AudioSource m_rocketExplosionSource;
+	[SerializeField] AudioSource m_earthExplosionSource;
 	[SerializeField] List<AudioClip> m_earthClickSounds;
+	[SerializeField] List<AudioClip> m_explosionSounds;
 	private float m_earthSoundDelay;
 
 	public static AudioController Instance
@@ -41,14 +44,17 @@ public class AudioController : MonoBehaviour
 		}
 	}
 
-	public void ExplosionAudioSource()
+	public void PlayExplosionSound(bool isEarth, Vector3 position)
 	{
-		if (!m_audioSource.isPlaying && m_earthSoundDelay <= 0.0f)
+		if (!isEarth)
 		{
-			m_earthSoundDelay = 0.7f;
-			var randomNumber = Random.Range(0, m_earthClickSounds.Count);
-			m_audioSource.clip = m_earthClickSounds[randomNumber];
-			m_audioSource.Play();
+			m_rocketExplosionSource.clip = m_explosionSounds[1];
+			m_rocketExplosionSource.Play();
+		}
+		else
+		{
+			m_earthExplosionSource.clip = m_explosionSounds[0];
+			m_earthExplosionSource.Play();
 		}
 	}
 
