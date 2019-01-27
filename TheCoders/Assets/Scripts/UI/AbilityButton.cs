@@ -10,6 +10,7 @@ public class AbilityButton : MonoBehaviour
 	public string Description;
 	public Sprite Icon;
 	private bool IsLocked = true;
+	private int LevelCount = 0;
 
 	public enum ValueType
 	{
@@ -206,16 +207,29 @@ public class AbilityButton : MonoBehaviour
 		}
 	}
 
-	[Tooltip("To unlock this ability, apply the following costs")]
-	public ModifierOption[] AbilityCosts;
+	[System.Serializable]
+	public class AbilityLevels
+	{
+		[Tooltip("To unlock this ability, apply the following costs")]
+		public ModifierOption[] AbilityCosts;
 
-	[Tooltip("Unlocked modifiers")]
-	public ModifierOption[] Modifiers;
+		[Tooltip("Unlocked modifiers")]
+		public ModifierOption[] Modifiers;
+	}
+
+	[Tooltip("Ability Cost per Level")]
+	public AbilityLevels[] Levels;
+
 
 	private void Awake()
 	{
 		gameObject.GetComponent<Image>().sprite = Icon;
 		gameObject.GetComponentInChildren<Text>().text = Title;
+	}
+
+	private void Start()
+	{
+		LevelCount = 0;
 	}
 
 	public void Unlock()
@@ -227,24 +241,29 @@ public class AbilityButton : MonoBehaviour
 		}
 
 		bool CanUnlockWithResources = true;
-		foreach ( ModifierOption Cost in AbilityCosts )
+		foreach ( ModifierOption Cost in Levels[LevelCount].AbilityCosts )
 		{
 			CanUnlockWithResources &= ModifierOption.EvaluateCostOption(Cost);
 		}
 
 		if (CanUnlockWithResources)
 		{
-			foreach (ModifierOption Cost in AbilityCosts)
+			foreach (ModifierOption Cost in Levels[LevelCount].AbilityCosts)
 			{
 				Cost.ApplyModifier();
 			}
-			foreach (ModifierOption Modifier in Modifiers)
+			foreach (ModifierOption Modifier in Levels[LevelCount].Modifiers)
 			{
 				Modifier.ApplyModifier();
 			}
 
 			Debug.Log("Unlocked Skill!");
-			IsLocked = false;
+			LevelCount++;
+			if (LevelCount >= Levels.Length)
+			{
+				IsLocked = false;
+				gameObject.GetComponent<Button>().interactable = false;
+			}
 		}
 		else
 		{
