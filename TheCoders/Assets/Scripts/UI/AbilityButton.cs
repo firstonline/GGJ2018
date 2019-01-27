@@ -223,6 +223,7 @@ public class AbilityButton : MonoBehaviour
 	{
 		if (!IsLocked)
 		{
+			Debug.Log("Skill already unlocked!");
 			return;
 		}
 
@@ -230,6 +231,7 @@ public class AbilityButton : MonoBehaviour
 		foreach ( ModifierOption Cost in AbilityCosts )
 		{
 			CanUnlockWithResources &= ModifierOption.EvaluateCostOption(Cost);
+			Debug.Log("Cannot unlock! Not enough resources!");
 		}
 
 		if (CanUnlockWithResources)
@@ -238,6 +240,12 @@ public class AbilityButton : MonoBehaviour
 			{
 				Cost.ApplyModifier();
 			}
+			foreach (ModifierOption Modifier in Modifiers)
+			{
+				Modifier.ApplyModifier();
+			}
+
+			Debug.Log("Unlocked Skill!");
 			IsLocked = false;
 		}
 	}
