@@ -60,6 +60,10 @@ public class GameUIController : MonoBehaviour
 				Time.timeScale = 1;
 			}
 		}
+		else if (Input.GetKeyUp(KeyCode.Space))
+		{
+			PanelButtonClicked();
+		}
 	}
 
 	public void UpdatePopulationText(int currentPopulation, int maxPopulation)
