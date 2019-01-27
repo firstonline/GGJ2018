@@ -52,16 +52,7 @@ public class GameUIController : MonoBehaviour
 	{
 		if (Input.GetKeyUp(KeyCode.Escape))
 		{
-			bool menuActive = !m_inGameMenu.activeInHierarchy;
-			m_inGameMenu.SetActive(menuActive);
-			if (menuActive)
-			{
-				Time.timeScale = 0;
-			}
-			else
-			{
-				Time.timeScale = 1;
-			}
+			TriggerMenu();
 		}
 
 		if (m_cooldown <= 0.0f)
@@ -143,6 +134,20 @@ public class GameUIController : MonoBehaviour
 	public void SetUpgPanel(AbilityButton node)
 	{
 		m_upgradePanel.SetUpgradeNode(node);
+	}
+
+	public void TriggerMenu()
+	{
+		bool menuActive = !m_inGameMenu.activeInHierarchy;
+		m_inGameMenu.SetActive(menuActive);
+		if (menuActive)
+		{
+			Time.timeScale = 0;
+		}
+		else
+		{
+			Time.timeScale = 1;
+		}
 	}
 
 	private IEnumerator SlideInPanels()
