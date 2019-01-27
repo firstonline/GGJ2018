@@ -51,6 +51,7 @@ public class Comet : MonoBehaviour
 	{
 		rbComponent.velocity = (Direction * Speed);
 		Vector2 vel = rbComponent.velocity;
+		this.transform.up = -Direction;
 	}
 
 	public void TakeDamage( int Value )

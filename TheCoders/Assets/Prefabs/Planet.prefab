@@ -110,7 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e0fdda65522d64cbd43695e28b4e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PopulationGainPerClick: 0
+  m_heartPrefab: {fileID: 762134095282033308, guid: a6db719e8d125d642937242f13886b5d,
+    type: 3}
+  PopulationGainPerClick: 1
 --- !u!95 &6322731882441138726
 Animator:
   serializedVersion: 3
