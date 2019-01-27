@@ -11,6 +11,7 @@ public class AudioController : MonoBehaviour
 	[SerializeField] List<AudioClip> m_earthClickSounds;
 	[SerializeField] List<AudioClip> m_explosionSounds;
 	[SerializeField] AudioClip m_flySound;
+	[SerializeField] AudioClip m_meteorDestroyed;
 	private float m_earthSoundDelay;
 
 	public static AudioController Instance
@@ -48,6 +49,7 @@ public class AudioController : MonoBehaviour
 
 	public void PlayEarthExplosionSound()
 	{
+		m_earthSoundDelay = 0.7f;
 		m_earthExplosionSource.clip = m_explosionSounds[0];
 		m_earthExplosionSource.Play();
 	}
@@ -69,7 +71,12 @@ public class AudioController : MonoBehaviour
 		m_rocketFlySource.clip = m_flySound;
 		m_rocketFlySource.Play();
 	}
-
+	
+	public void MeteoriteDestroyedSound()
+	{
+		m_audioSource.clip = m_meteorDestroyed;
+		m_audioSource.Play();
+	}
 
 	private void Update()
 	{

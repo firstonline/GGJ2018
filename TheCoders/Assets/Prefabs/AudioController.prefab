@@ -324,6 +324,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 87d8dacaad8bd86408e05f4f2fbef737, type: 3}
   - {fileID: 8300000, guid: d80e8a16af6da104e94e38e8ee0feae4, type: 3}
   m_flySound: {fileID: 8300000, guid: b26257bd68900d7499879343fed6a5ac, type: 3}
+  m_meteorDestroyed: {fileID: 8300000, guid: 9ffe5ea7b2898dd489bb7c70d72282ee, type: 3}
 --- !u!1 &5008178487174157917
 GameObject:
   m_ObjectHideFlags: 0

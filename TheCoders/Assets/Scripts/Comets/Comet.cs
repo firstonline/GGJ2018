@@ -61,6 +61,7 @@ public class Comet : MonoBehaviour
 		HealthCanvas.enabled = true;
 		if ( Health <= 0 )
 		{
+			AudioController.Instance.MeteoriteDestroyedSound();
 			Die();
 		}
 	}
