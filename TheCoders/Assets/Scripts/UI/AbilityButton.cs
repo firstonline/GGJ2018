@@ -12,6 +12,7 @@ public class AbilityButton : MonoBehaviour
 	private bool IsLocked = true;
 	[HideInInspector]
 	public int LevelCount = 0;
+	public bool ShowDefaultUpgradeDescription = true;
 
 	public enum ValueType
 	{

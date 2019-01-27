@@ -54,10 +54,13 @@ public class UpgradePanelScript : MonoBehaviour
 			DescTextString += "* " + Cost.RepresentAsString() + "\n";
 		}
 
-		DescTextString += "\nUpgrades:\n";
-		foreach (AbilityButton.ModifierOption Upgrade in Node.Levels[Node.LevelCount].Modifiers)
+		if (Node.ShowDefaultUpgradeDescription)
 		{
-			DescTextString += "* " + Upgrade.RepresentAsString() + "\n";
+			DescTextString += "\nUpgrades:\n";
+			foreach (AbilityButton.ModifierOption Upgrade in Node.Levels[Node.LevelCount].Modifiers)
+			{
+				DescTextString += "* " + Upgrade.RepresentAsString() + "\n";
+			}
 		}
 
 		UpdateTexts();
