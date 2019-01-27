@@ -40,7 +40,7 @@ public class AbilityButton : MonoBehaviour
 		//Apply the current modifier
 		public void ApplyModifier()
 		{
-			RocketsManager RocketManager = GameObject.FindGameObjectWithTag("RocketManager").GetComponent<RocketsManager>();
+			RocketsManager RocketManager = RocketsManager.Instance.GetComponent<RocketsManager>();
 			RocketData RocketData = RocketManager.GetRocketData(RocketType.Small);
 			switch (ValueType)
 			{
@@ -231,7 +231,6 @@ public class AbilityButton : MonoBehaviour
 		foreach ( ModifierOption Cost in AbilityCosts )
 		{
 			CanUnlockWithResources &= ModifierOption.EvaluateCostOption(Cost);
-			Debug.Log("Cannot unlock! Not enough resources!");
 		}
 
 		if (CanUnlockWithResources)
@@ -247,6 +246,10 @@ public class AbilityButton : MonoBehaviour
 
 			Debug.Log("Unlocked Skill!");
 			IsLocked = false;
+		}
+		else
+		{
+			Debug.Log("Cannot unlock! Not enough resources!");
 		}
 	}
 
