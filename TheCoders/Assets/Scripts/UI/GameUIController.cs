@@ -16,6 +16,7 @@ public class GameUIController : MonoBehaviour
 	[SerializeField] private GameObject m_dimmer;
 	[SerializeField] private List<Animator> m_panelAnimators;
 	[SerializeField] private TextMeshProUGUI m_statsText;
+	[SerializeField] private UpgradePanelScript m_upgradePanel;
 
 	private bool m_panelsAreOpen;
 
@@ -127,6 +128,11 @@ public class GameUIController : MonoBehaviour
 			}
 
 		}
+	}
+
+	public void SetUpgPanel(AbilityButton node)
+	{
+		m_upgradePanel.SetUpgradeNode(node);
 	}
 
 	private IEnumerator SlideInPanels()
