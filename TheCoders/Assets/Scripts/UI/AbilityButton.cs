@@ -280,7 +280,7 @@ public class AbilityButton : MonoBehaviour
 	private void Awake()
 	{
 		gameObject.GetComponent<Image>().sprite = Icon;
-		gameObject.GetComponentInChildren<Text>().text = Title;
+		// gameObject.GetComponentInChildren<Text>().text = Title;
 	}
 
 	private void Start()
