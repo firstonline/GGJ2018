@@ -553,7 +553,7 @@ PrefabInstance:
     - target: {fileID: 757178382474925627, guid: e1a95972b7775ad46a76076fd5a79514,
         type: 3}
       propertyPath: Title
-      value: Click Damage +
+      value: Click Damage
       objectReference: {fileID: 0}
     - target: {fileID: 757178382474925627, guid: e1a95972b7775ad46a76076fd5a79514,
         type: 3}
@@ -5775,7 +5775,7 @@ PrefabInstance:
     - target: {fileID: 757178382474925627, guid: e1a95972b7775ad46a76076fd5a79514,
         type: 3}
       propertyPath: Title
-      value: Click Growth +
+      value: Click Growth
       objectReference: {fileID: 0}
     - target: {fileID: 757178382474925627, guid: e1a95972b7775ad46a76076fd5a79514,
         type: 3}
