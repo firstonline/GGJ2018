@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639c7b64cb6c70a468fea7ede59ca92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingPopulation: 50
-  PopulationMaximum: 100
+  StartingPopulation: 550
+  PopulationMaximum: 2000
   PopulationCurrent: 50
-  StartingGrowthRate: 1.1
+  StartingGrowthRate: 2
   CurrentGrowRate: 0
   LogPopulationStatsToConsole: 1
 --- !u!114 &461238055146306249
@@ -66,10 +66,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Arena: {fileID: 0}
   Planet: {fileID: 0}
-  CometSpawnDelay: 2
-  CometSpeed: 0.2
-  CometHealth: 10
-  CometDamage: 10
+  CometSpawnDelay: 8
+  CometSpeed: 0.1
+  CometHealth: 100
+  CometDamage: 200
+  CometsUntilUpgrade: 6
+  CometSpawnDelayMultiplier: 0.975
+  CometSpeedMultiplier: 1.005
+  CometHealthMultiplier: 1.1
+  CometDamageMultiplier: 1.05
+  PlayerDamagePerClick: 0
 --- !u!114 &461238055146306253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,8 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1fce9756aca48498c02f2bd035fd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinBounds: {x: -2, y: 0}
-  MaxBounds: {x: 2, y: 2}
+  MinBounds: {x: -1.65, y: -1.2}
+  MaxBounds: {x: 1.65, y: 1.2}
 --- !u!114 &461238055146306252
 MonoBehaviour:
   m_ObjectHideFlags: 0

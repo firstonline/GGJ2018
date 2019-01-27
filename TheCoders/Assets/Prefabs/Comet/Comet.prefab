@@ -599,7 +599,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.01}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -610,7 +610,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.08, y: 0.15}
+  m_Size: {x: 0.16, y: 0.25}
   m_EdgeRadius: 0
 --- !u!1001 &7799446337295166290
 PrefabInstance:
@@ -619,6 +619,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1583339114883508593}
     m_Modifications:
+    - target: {fileID: 2658239638899671060, guid: bfd178249596eb944bf32065fcf94c2a,
+        type: 3}
+      propertyPath: m_Name
+      value: MeteorTrail
+      objectReference: {fileID: 0}
     - target: {fileID: 6900777720468658413, guid: bfd178249596eb944bf32065fcf94c2a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -683,11 +688,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2658239638899671060, guid: bfd178249596eb944bf32065fcf94c2a,
-        type: 3}
-      propertyPath: m_Name
-      value: MeteorTrail
       objectReference: {fileID: 0}
     - target: {fileID: 5027210854347631123, guid: bfd178249596eb944bf32065fcf94c2a,
         type: 3}
