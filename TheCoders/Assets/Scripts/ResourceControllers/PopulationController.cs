@@ -134,7 +134,8 @@ public class PopulationController : MonoBehaviour
 		};
 
 		AddModifier( 0, BaseRateCalc );
-    }
+		GameUIController.Instance.UpdatePopulationText(PopulationCurrent, PopulationMaximum);
+	}
 
     // Update is called once per frame
     void Update()
