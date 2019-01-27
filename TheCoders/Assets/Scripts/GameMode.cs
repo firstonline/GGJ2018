@@ -114,5 +114,6 @@ public class GameMode : MonoBehaviour
 	{
 		Planet.SetActive(false);
 		GameUIController.Instance.ShowEndGamePopup();
+		RocketsManager.Instance.DisableAutoSpawn();
 	}
 }

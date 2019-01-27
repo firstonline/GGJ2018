@@ -12,9 +12,14 @@ public class RocketsManager : MonoBehaviour
 	private GameObject target;
 	private ObjectPooler m_pooler;
 	private PopulationController m_popController;
+
 	private bool m_constructing;
 	private RocketData m_rocketInConstruction;
 	private float m_constructionTime;
+	
+	private RocketData m_autoRocketData;
+	private bool m_autoSpawnEnabled;
+	private float m_autoConstructionTimeLeft;
 
 	public static RocketsManager Instance
 	{
@@ -45,6 +50,7 @@ public class RocketsManager : MonoBehaviour
 		var rocketData = GetRocketData(RocketType.Small);
 		m_spawnButton.Initialise(rocketData);
 		m_popController = GameMode.Instance.GetPopController();
+		EnableAutoSpawnRockets();
 	}
 
 	private void Update()
@@ -63,6 +69,25 @@ public class RocketsManager : MonoBehaviour
 				m_spawnButton.SetStorageText(m_rocketInConstruction.CreatedRockets, m_rocketInConstruction.StorageAmount);
 				m_rocketInConstruction = null;
 				m_spawnButton.UpdateProgressBar(0.0f);
+			}
+		}
+
+		if (m_autoSpawnEnabled)
+		{
+			if (m_autoConstructionTimeLeft > 0.0f)
+			{
+				m_autoConstructionTimeLeft -= Time.deltaTime;
+				// m_spawnButton.UpdateProgressBar(1.0f - m_constructionTime / m_rocketInConstruction.TimeToConstruct);
+			}
+			else
+			{
+				m_autoConstructionTimeLeft = m_autoRocketData.TimeToConstruct;
+				SelectBestTarget();
+				if (target != null)
+				{
+					var rocket = m_pooler.GetNewObject().GetComponent<Rocket>();
+					rocket.Initialise(target, m_autoRocketData.Damage, m_autoRocketData.RocketSprite, Vector3.zero);
+				}
 			}
 		}
 	}
@@ -121,6 +146,18 @@ public class RocketsManager : MonoBehaviour
 		var rocketData = GetRocketData(rocketType);
 		rocketData.Unlocked = true;
 		int buttonIndex = (int)rocketData.RocketType;
+	}
+
+	public void EnableAutoSpawnRockets()
+	{
+		m_autoSpawnEnabled = true;
+		m_autoRocketData = GetRocketData(RocketType.AutoAimWeak);
+		m_autoConstructionTimeLeft = m_autoRocketData.TimeToConstruct;
+	}
+
+	public void DisableAutoSpawn()
+	{
+		m_autoSpawnEnabled = false;
 	}
 
 	private void SelectBestTarget()
