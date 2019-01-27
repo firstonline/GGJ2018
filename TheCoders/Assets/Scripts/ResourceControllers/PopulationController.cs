@@ -155,7 +155,7 @@ public class PopulationController : MonoBehaviour
 
 	void CheckGameOver()
 	{
-		if ( PopulationCurrent < 0 )
+		if ( PopulationCurrent <= 0 )
 		{
 			GameMode.Instance.GameOver();
 		}

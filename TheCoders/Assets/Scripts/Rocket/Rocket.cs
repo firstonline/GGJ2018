@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Rocket : MonoBehaviour
 {
+	public int Damage { get { return m_damage; } }
+
 	[SerializeField] private float m_moveSpeed;
 	[SerializeField] private int m_damage;
 	[SerializeField] private SpriteRenderer m_rocketImage;
@@ -18,6 +20,11 @@ public class Rocket : MonoBehaviour
 	private Vector3 m_dir;
 	private Quaternion m_originalAngle;
 	private float m_velocity = 0.0f;
+
+	public void OnEnable()
+	{
+		AudioController.Instance.PlayRocketFlySound();
+	}
 
 	// Start is called before the first frame update
 	public void Initialise(GameObject target, int damage, Sprite rocketSprite, Vector3 initPosition)
@@ -83,17 +90,6 @@ public class Rocket : MonoBehaviour
 		}
 		else
 		{
-			gameObject.SetActive(false);
-		}
-	}
-
-	private void OnTriggerEnter2D(Collider2D other)
-	{
-		// Debug.Log("Rocket Overlap with other: " + other.tag);
-		if (other.CompareTag("Comet"))
-		{
-			Comet Comet = other.gameObject.GetComponent<Comet>();
-			Comet.TakeDamage(m_damage);
 			gameObject.SetActive(false);
 		}
 	}

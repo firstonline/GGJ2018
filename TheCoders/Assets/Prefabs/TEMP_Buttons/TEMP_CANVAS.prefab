@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 4931906424504176066}
   - component: {fileID: 4931906424504176065}
   m_Layer: 0
-  m_Name: Button (3)
+  m_Name: Population Limit +
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4300232, y: -0.53570557}
+  m_AnchoredPosition: {x: 0.43, y: -0.216}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4931906424504176076
@@ -300,17 +300,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee834804394eea40b9bfc16e68ef8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: Increase pop cap (400)
+  Title: Population Limit +
   Description: 
   Icon: {fileID: 0}
-  AbilityCosts:
-  - ValueType: 0
-    OpType: 1
-    Value: 200
-  Modifiers:
-  - ValueType: 1
-    OpType: 0
-    Value: 400
+  Levels:
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 200
+    Modifiers:
+    - ValueType: 1
+      OpType: 0
+      Value: 200
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 600
+    Modifiers:
+    - ValueType: 1
+      OpType: 0
+      Value: 200
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 1000
+    Modifiers:
+    - ValueType: 1
+      OpType: 0
+      Value: 200
 --- !u!1 &4931906424527491646
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +342,7 @@ GameObject:
   - component: {fileID: 4931906424527491641}
   - component: {fileID: 4931906424527491640}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Click Growth +
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4300232, y: -0.24954224}
+  m_AnchoredPosition: {x: 0.43, y: 0.825}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4931906424527491643
@@ -453,17 +470,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee834804394eea40b9bfc16e68ef8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: Add Pop per Click (400)
+  Title: Click Growth +
   Description: 
   Icon: {fileID: 0}
-  AbilityCosts:
-  - ValueType: 0
-    OpType: 1
-    Value: 400
-  Modifiers:
-  - ValueType: 5
-    OpType: 0
-    Value: 6
+  Levels:
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 100
+    Modifiers:
+    - ValueType: 5
+      OpType: 0
+      Value: 6
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 400
+    Modifiers:
+    - ValueType: 5
+      OpType: 0
+      Value: 6
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 800
+    Modifiers:
+    - ValueType: 5
+      OpType: 0
+      Value: 6
 --- !u!1 &4931906424683243746
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +512,7 @@ GameObject:
   - component: {fileID: 4931906424683243757}
   - component: {fileID: 4931906424683243756}
   m_Layer: 0
-  m_Name: Button (2)
+  m_Name: Rocket Damage +
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,7 +535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4300232, y: -0.38945007}
+  m_AnchoredPosition: {x: 0.43, y: 0.301}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4931906424683243759
@@ -606,17 +640,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee834804394eea40b9bfc16e68ef8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: Rocket Damage + (100)
+  Title: Rocket Damage +
   Description: 
   Icon: {fileID: 0}
-  AbilityCosts:
-  - ValueType: 0
-    OpType: 1
-    Value: 100
-  Modifiers:
-  - ValueType: 3
-    OpType: 0
-    Value: 30
+  Levels:
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 50
+    Modifiers:
+    - ValueType: 3
+      OpType: 0
+      Value: 30
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 200
+    Modifiers:
+    - ValueType: 3
+      OpType: 0
+      Value: 30
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 400
+    Modifiers:
+    - ValueType: 3
+      OpType: 0
+      Value: 30
 --- !u!1 &4931906424994131752
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +682,7 @@ GameObject:
   - component: {fileID: 4931906424994131755}
   - component: {fileID: 4931906424994131754}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: 'Click Damage + '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -759,17 +810,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee834804394eea40b9bfc16e68ef8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: Click Damage (400)
+  Title: Click Damage +
   Description: 
   Icon: {fileID: 0}
-  AbilityCosts:
-  - ValueType: 0
-    OpType: 1
-    Value: 400
-  Modifiers:
-  - ValueType: 4
-    OpType: 0
-    Value: 10
+  Levels:
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 100
+    Modifiers:
+    - ValueType: 4
+      OpType: 0
+      Value: 10
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 400
+    Modifiers:
+    - ValueType: 4
+      OpType: 0
+      Value: 10
+  - AbilityCosts:
+    - ValueType: 0
+      OpType: 1
+      Value: 800
+    Modifiers:
+    - ValueType: 4
+      OpType: 0
+      Value: 10
 --- !u!1 &4931906425309265748
 GameObject:
   m_ObjectHideFlags: 0

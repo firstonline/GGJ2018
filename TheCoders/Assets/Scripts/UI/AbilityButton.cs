@@ -18,9 +18,12 @@ public class AbilityButton : MonoBehaviour
 		PopulationLimit,
 		GrowthRate,
 		RocketDamage,
+		RocketCost,
+		RocketBuildTime,
+		AutoRocketDamage,
+		AutoRocketBuildTime,
 		ClickDamage,
-		PopulationPerClick,
-		RocketCost
+		PopulationPerClick
 	}
 
 	public enum OperationType
@@ -43,6 +46,7 @@ public class AbilityButton : MonoBehaviour
 		{
 			RocketsManager RocketManager = RocketsManager.Instance.GetComponent<RocketsManager>();
 			RocketData RocketData = RocketManager.GetRocketData(RocketType.Small);
+			RocketData AutoRocketData = RocketManager.GetRocketData(RocketType.AutoAimWeak);
 			switch (ValueType)
 			{
 				case ValueType.Population:
@@ -130,6 +134,57 @@ public class AbilityButton : MonoBehaviour
 							break;
 						case OperationType.Division:
 							RocketData.HumansCost /= (int)Value;
+							break;
+					}
+					break;
+				case ValueType.RocketBuildTime:
+					switch (OpType)
+					{
+						case OperationType.Addition:
+							RocketData.TimeToConstruct += (int)Value;
+							break;
+						case OperationType.Subtraction:
+							RocketData.TimeToConstruct -= (int)Value;
+							break;
+						case OperationType.Multiplication:
+							RocketData.TimeToConstruct *= (int)Value;
+							break;
+						case OperationType.Division:
+							RocketData.TimeToConstruct /= (int)Value;
+							break;
+					}
+					break;
+				case ValueType.AutoRocketDamage:
+					switch (OpType)
+					{
+						case OperationType.Addition:
+							AutoRocketData.Damage += (int)Value;
+							break;
+						case OperationType.Subtraction:
+							AutoRocketData.Damage -= (int)Value;
+							break;
+						case OperationType.Multiplication:
+							AutoRocketData.Damage *= (int)Value;
+							break;
+						case OperationType.Division:
+							AutoRocketData.Damage /= (int)Value;
+							break;
+					}
+					break;
+				case ValueType.AutoRocketBuildTime:
+					switch (OpType)
+					{
+						case OperationType.Addition:
+							AutoRocketData.TimeToConstruct += (int)Value;
+							break;
+						case OperationType.Subtraction:
+							AutoRocketData.TimeToConstruct -= (int)Value;
+							break;
+						case OperationType.Multiplication:
+							AutoRocketData.TimeToConstruct *= (int)Value;
+							break;
+						case OperationType.Division:
+							AutoRocketData.TimeToConstruct /= (int)Value;
 							break;
 					}
 					break;

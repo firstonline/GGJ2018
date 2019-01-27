@@ -15,12 +15,15 @@ public class Planet : MonoBehaviour
 	//On click - do this
 	private void OnMouseDown()
 	{
-		GameMode.Instance.GetPopController().AddPopulation(PopulationGainPerClick);
-		if (null != anim)
+		if ( PopulationGainPerClick > 0 )
 		{
-			// play Bounce but start at a quarter of the way though
-			anim.Play("PlanetClickAnim", 0, 0.0f);
+			GameMode.Instance.GetPopController().AddPopulation(PopulationGainPerClick);
+			if (null != anim)
+			{
+				// play Bounce but start at a quarter of the way though
+				anim.Play("PlanetClickAnim", 0, 0.0f);
+			}
+			AudioController.Instance.PlayEarthClickSound();
 		}
-		AudioController.Instance.PlayEarthClickSound();
 	}
 }
