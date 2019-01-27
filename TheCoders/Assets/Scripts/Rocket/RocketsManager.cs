@@ -55,6 +55,8 @@ public class RocketsManager : MonoBehaviour
 
 	private void Update()
 	{
+		UpdateCostsText();
+
 		if (m_constructing)
 		{
 			if (m_constructionTime > 0.0f)
@@ -187,5 +189,10 @@ public class RocketsManager : MonoBehaviour
 	public int GetActiveRocketsCount()
 	{
 		return m_pooler.CountActiveElements();
+	}
+
+	public void UpdateCostsText()
+	{
+		m_spawnButton.SetCostText(GetRocketData(RocketType.Small).HumansCost);
 	}
 }
