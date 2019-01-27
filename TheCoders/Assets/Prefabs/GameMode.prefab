@@ -66,11 +66,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Arena: {fileID: 0}
   Planet: {fileID: 0}
-  CometSpawnDelay: 8
+  CometSpawnDelay: 7.9
   CometSpeed: 0.1
   CometHealth: 100
   CometDamage: 200
-  CometsUntilUpgrade: 6
+  CometsUntilUpgrade: 5
   CometSpawnDelayMultiplier: 0.975
   CometSpeedMultiplier: 1.005
   CometHealthMultiplier: 1.075
