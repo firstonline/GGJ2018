@@ -15,7 +15,11 @@ public class AbilityButton : MonoBehaviour
 	{
 		Population,
 		PopulationLimit,
-		GrowthRate
+		GrowthRate,
+		RocketDamage,
+		ClickDamage,
+		PopulationPerClick,
+		RocketCost
 	}
 
 	public enum OperationType
@@ -36,6 +40,8 @@ public class AbilityButton : MonoBehaviour
 		//Apply the current modifier
 		public void ApplyModifier()
 		{
+			RocketsManager RocketManager = GameObject.FindGameObjectWithTag("RocketManager").GetComponent<RocketsManager>();
+			RocketData RocketData = RocketManager.GetRocketData(RocketType.Small);
 			switch (ValueType)
 			{
 				case ValueType.Population:
@@ -92,6 +98,77 @@ public class AbilityButton : MonoBehaviour
 							break;
 					}
 					break;
+				case ValueType.RocketDamage:
+					switch (OpType)
+					{
+						case OperationType.Addition:
+							RocketData.Damage += (int)Value;
+							break;
+						case OperationType.Subtraction:
+							RocketData.Damage -= (int)Value;
+							break;
+						case OperationType.Multiplication:
+							RocketData.Damage *= (int)Value;
+							break;
+						case OperationType.Division:
+							RocketData.Damage /= (int)Value;
+							break;
+					}
+					break;
+				case ValueType.RocketCost:
+					switch (OpType)
+					{
+						case OperationType.Addition:
+							RocketData.HumansCost += (int)Value;
+							break;
+						case OperationType.Subtraction:
+							RocketData.HumansCost -= (int)Value;
+							break;
+						case OperationType.Multiplication:
+							RocketData.HumansCost *= (int)Value;
+							break;
+						case OperationType.Division:
+							RocketData.HumansCost /= (int)Value;
+							break;
+					}
+					break;
+				case ValueType.ClickDamage:
+					float ClickDamage = GameMode.Instance.PlayerDamagePerClick;
+					switch (OpType)
+					{
+						case OperationType.Addition:
+							ClickDamage += Value;
+							break;
+						case OperationType.Subtraction:
+							ClickDamage -= Value;
+							break;
+						case OperationType.Multiplication:
+							ClickDamage *= Value;
+							break;
+						case OperationType.Division:
+							ClickDamage /= Value;
+							break;
+					}
+					break;
+				case ValueType.PopulationPerClick:
+					float PopulationPerClick = GameMode.Instance.Planet.GetComponent<Planet>().PopulationGainPerClick;
+					Planet Planet = GameMode.Instance.Planet.GetComponent<Planet>();
+					switch (OpType)
+					{
+						case OperationType.Addition:
+							Planet.PopulationGainPerClick += (int)Value;
+							break;
+						case OperationType.Subtraction:
+							Planet.PopulationGainPerClick -= (int)Value;
+							break;
+						case OperationType.Multiplication:
+							Planet.PopulationGainPerClick *= (int)Value;
+							break;
+						case OperationType.Division:
+							Planet.PopulationGainPerClick /= (int)Value;
+							break;
+					}
+					break;
 			}
 		}
 
@@ -133,6 +210,9 @@ public class AbilityButton : MonoBehaviour
 	[Tooltip("To unlock this ability, apply the following costs")]
 	public ModifierOption[] AbilityCosts;
 
+	[Tooltip("Unlocked modifiers")]
+	public ModifierOption[] Modifiers;
+
 	private void Awake()
 	{
 		gameObject.GetComponent<Image>().sprite = Icon;
@@ -158,6 +238,7 @@ public class AbilityButton : MonoBehaviour
 			{
 				Cost.ApplyModifier();
 			}
+			IsLocked = false;
 		}
 	}
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "PopulationUpgrade", menuName = "Upgrade/Population", order = 1)]
 public class PopulationUpgrade : IUpgrade
 {
 	public override UpgradeType UpgradeType { get { return UpgradeType.Population; } }
