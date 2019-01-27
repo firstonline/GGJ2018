@@ -48,7 +48,8 @@ public class UpgradePanelScript : MonoBehaviour
 			TitleTextString = TitleTextString + " Lv. " + (Node.LevelCount + 1);
 		}
 		DescTextString = Node.Description;
-		if (Node.Description.Length == 0)
+		Debug.Log(Node.Description.Length);
+		if (Node.Description.Length != 0)
 		{
 			DescTextString += "\n\n";
 		}
