@@ -160,7 +160,7 @@ public class GameUIController : MonoBehaviour
 		}
 		m_dimmer.SetActive(true);
 		
-		yield return new WaitForSeconds(0.4f);
+		yield return new WaitForSeconds(0.5f);
 		Time.timeScale = 0;
 	}
 

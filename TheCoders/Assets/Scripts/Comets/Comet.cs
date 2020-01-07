@@ -17,10 +17,9 @@ public class Comet : MonoBehaviour
 	private Rigidbody2D rbComponent;
 	private int Health;
 
-	[SerializeField]
-	private Slider HealthBar;
-	[SerializeField]
-	private Canvas HealthCanvas;
+
+	[SerializeField] private GameObject m_healthBarFill;
+	[SerializeField] private GameObject m_healthBarParent;
 
 	// Called at construction
 	void Awake()
@@ -31,9 +30,9 @@ public class Comet : MonoBehaviour
 
 	private void OnEnable()
 	{
-		HealthCanvas.enabled = false;
+		m_healthBarParent.gameObject.SetActive(false);
 		Health = MaxHealth;
-		HealthBar.value = 1.0f;
+		m_healthBarFill.transform.localScale = new Vector3(1f, 1f, 1f);
 		m_explosionVFX.SetActive(false);
 		//m_trailRenderer.SetActive(true);
 		m_trailRenderer.GetComponent<TrailRenderer>().emitting = true;
@@ -42,9 +41,9 @@ public class Comet : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		HealthCanvas.enabled = false;
+		m_healthBarParent.SetActive(false);
 		Health = MaxHealth;
-		HealthBar.value = 1.0f;
+		m_healthBarFill.transform.localScale = new Vector3(1f, 1f, 1f);
 	}
 
 	public void SetVelocity( float Speed, Vector2 Direction )
@@ -57,8 +56,8 @@ public class Comet : MonoBehaviour
 	public void TakeDamage( int Value )
 	{
 		Health -= Value;
-		HealthBar.value = ((float)Health) / ((float)MaxHealth);
-		HealthCanvas.enabled = true;
+		m_healthBarFill.transform.localScale = new Vector3(1f, ((float)Health) / ((float)MaxHealth), 1f);
+		m_healthBarParent.SetActive(true);
 		if ( Health <= 0 )
 		{
 			Die();

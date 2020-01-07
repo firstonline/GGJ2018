@@ -9,12 +9,18 @@ public class Arena2D : MonoBehaviour
     public static float Height { get; private set; }
 
 	//bottom left corner
-	public Vector2 MinBounds;
+	private Vector3 MinBounds;
 	//top right corner
-	public Vector2 MaxBounds;
+	private Vector3 MaxBounds;
 
 	void Awake()
 	{
+		MinBounds = new Vector3(0f, 0f, 0f);
+		MinBounds = Camera.main.ScreenToWorldPoint(MinBounds);
+
+		MaxBounds = new Vector3(Screen.width, Screen.height, 0f);
+		MaxBounds = Camera.main.ScreenToWorldPoint(MaxBounds);
+
 		Width = Mathf.Abs(MinBounds.x - MaxBounds.x);
 		Height = Mathf.Abs(MinBounds.y - MaxBounds.y);
 	}
